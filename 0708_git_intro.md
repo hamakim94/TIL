@@ -304,6 +304,7 @@ Changes not staged for commit:
 8. 복습 및 자습
 9. 마지막으로 `$ git push`
 10. 1번으로..
+11. yea!
 
 
 
