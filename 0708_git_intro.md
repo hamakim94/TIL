@@ -173,13 +173,15 @@ Date:   Wed Jul 8 14:55:46 2020 +0900
 
 ## local git
 
-1. 초기화`$ git init`          ctrl+enter 빠져나오기, tab들여쓰기, 
+1. git 다운로드 및 설치
+
+2. 초기화`$ git init`          ctrl+enter 빠져나오기, tab들여쓰기, 
 
    1. 실제로는폴더에  .git/ 폴더가 생성됨
    2. 버전관리가 시작됨
    3. 리포(repository)라고 부름
 
-2. 서명 설정
+3. 서명 설정
 
    ```
    1. $ git config --global.user.name "name"
@@ -187,12 +189,26 @@ Date:   Wed Jul 8 14:55:46 2020 +0900
    2. $ git config --global.user.email "email@email"
    ```
 
-3. 리포의 상태 보기 ` $ git status ` 
-4. stage에 올리기!! $ git add ` 
+4. 리포의 상태 보기 ` $ git status ` 
+
+5. stage에 올리기!! $ git add ` 
    1. 특정 파일만 올리기 `$ git add <filenames>`
    2. 내 위치(폴더) 다 올리기 `git add .`
-5. snapshot 찍기 `$ git commit` 
-6.  로그 보기(찍어놓은 사진첩!) `git log` 
+
+6. snapshot 찍기 `$ git commit` 
+
+7. 로그 보기(찍어놓은 사진첩!) `git log` 
+
+### 집 컴퓨터 세팅
+
+1.  git 다운로드 및 typora 설치
+2. `$ git clone <URL>`
+   1.  `$ git remote -v` 입력하면 나와. 예시 : https://github.com/hamakim94/TIL.git    . git 중요! , 페이지에도 있음 code 칸 들어가면
+   2.  원하는 폴더 우클릭 - Git Besh Here -> 해당되는 장소로 gi besh가 열려!
+
+
+
+
 
 
 
@@ -274,7 +290,18 @@ Changes not staged for commit:
 
 
 
+# TIL 관리 시나리오
 
+1. 멀캠에 온다
+2. `$git pull`
+3. 열-공
+4. 중간중간 `git add . & git commit` 
+5. 집 가기전에 `$git push`
+6. 집 도착
+7. `$git pull `
+8. 복습 및 자습
+9. 마지막으로 `$ git push`
+10. 1번으로..
 
 
 
