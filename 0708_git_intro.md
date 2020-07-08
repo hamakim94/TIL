@@ -260,14 +260,15 @@ Changes not staged for commit:
         modified:   0708_git_intro.md        새로운 사진
 ```
 
-# GITHUB
+# GIT HUB
 
 1. 원격 저장소(remote repository) 생성!
-2. 로컬 리포 => 리모트 리포 `$ git remote add origin <url> ` -> 복붙..
+2. local repo => remote repo `$ git remote add origin <url> ` -> 복붙..
 3. 로컬 커밋들을 리모트로 보내기 `$ git push origin master` 
    1.  만약 맨날 쓰기 싫다..!
 4. `$ git push` == `$git push origin master`로 단축명령하기 `$git push -u origin master`
-5. 
+5. 다른 컴퓨터에서 remote repo **최초**로 받아오기 `$ git clone <url>`
+6. 이후 remote repo 변경사항 을 local_repo에 반영하기 `$ git pull `
 
 
 
