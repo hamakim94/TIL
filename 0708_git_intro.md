@@ -202,7 +202,8 @@ Date:   Wed Jul 8 14:55:46 2020 +0900
 ### 집 컴퓨터 세팅
 
 1.  git 다운로드 및 typora 설치
-2. `$ git clone <URL>`
+2. ` git config ..global`
+3. `$ git clone <URL>`
    1.  `$ git remote -v` 입력하면 나와. 예시 : https://github.com/hamakim94/TIL.git    . git 중요! , 페이지에도 있음 code 칸 들어가면
    2.  원하는 폴더 우클릭 - Git Besh Here -> 해당되는 장소로 gi besh가 열려!
 
