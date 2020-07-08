@@ -305,6 +305,6 @@ Changes not staged for commit:
 9. 마지막으로 `$ git push`
 10. 1번으로..
 11. yea!
-
-
+12. in notebook
+13. 
 
