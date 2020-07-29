@@ -38,7 +38,7 @@ class MPCK(object):
         self._vocab = self.get_vocab(self.FILES['vocab'])
         self._positive_label = 'pos'
         self._negative_label = 'neg'
-        self._min_ngram = 1
+        self._min_ngram = 2
         self._ngram = 5
         self._delimiter = ';'
         self._start_tags = {'NNG', 'VA', 'VAX', 'MAG'}
