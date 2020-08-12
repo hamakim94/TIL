@@ -9,22 +9,22 @@ from functions import input_preprocessing, preprocessing, CNN_model_1, input_pre
     ########################################
     ###   <data 준비시키기 일반 version>   ###
     ########################################
-    # df_train = pd.read_csv('train_data.csv')
-    # df_test = pd.read_csv('test_data.csv')
+# df_train = pd.read_csv('train_data.csv')
+# df_test = pd.read_csv('test_data.csv')
 
-    # train_data, train_lable = preprocessing(df_train)
-    # test_data, test_lable = preprocessing(df_test)
+# train_data, train_lable = preprocessing(df_train)
+# test_data, test_lable = preprocessing(df_test)
 
 
-    # X_train, y_train = input_preprocessing(train_data), train_lable
-    # X_test, y_test = input_preprocessing(test_data), test_lable
+# X_train, y_train = input_preprocessing(train_data), train_lable
+# X_test, y_test = input_preprocessing(test_data), test_lable
 
     ############################################
     ###   <data 준비시키기 시간절약 version>    ###
     ###  토큰화되어 저장한 train test data이용  ###
     ###########################################
-df_train = pd.read_pickle('token_train_data.pkl')
-df_test = pd.read_pickle('token_test_data.pkl')
+df_train = pd.read_pickle('token_train_data_ver2.pkl')
+df_test = pd.read_pickle('token_test_data_ver2.pkl')
 
 train_data, train_lable = df_train['tokens'], df_train['labels']
 test_data, test_lable = df_test['tokens'], df_test['labels']

@@ -24,9 +24,11 @@ max_len = 30
 
 #데이터프레임을 받아서 한글이외의 값지우고 nan값 지우고 필요한 데이터만 반환 
 def preprocessing(data):
+
     data.drop_duplicates(subset=['document'], inplace=True)
     data = data.dropna(how = 'any')
-    data['document'] = data['document'].str.replace("[^ㄱ-ㅎㅏ-ㅣ가-힣 ]","")
+    data['document'] = data['document'].str.replace("[^ㄱ-ㅎㅏ-ㅣ가-힣0_9A-Za-z ]","")
+
     data['document'].replace('', np.nan, inplace=True)
     data = data.dropna(how = 'any')
     sentences = data['document'].tolist()
@@ -47,7 +49,7 @@ def tokenize(sentence):
         temp_sentence = okt.pos(line, norm=True, stem=True) # 먼저 형태소 분리해서 리스트에 담고
 
         for i in temp_sentence:                             
-            if (i[1] == 'Noun' or i[1] == 'Adjective' or i[1] == 'Alpha'):                  
+            if (i[1] == 'Noun' or i[1] == 'Adjective' or i[1] == 'Alpha' or i[1] == 'Verb' or i[1] == 'KoreanParticle' or i[1] == 'Number' ):                  
                 result.append(i[0])
             
         tokenized_sentence.append(result)
@@ -135,6 +137,11 @@ def token_padded(sentences):
                                   padding=padding_type, truncating=truct_type)
   return padded
 
+def fasttext_vectorize(padded_sentences, max_len = 40):
+    ko_model = models.fasttext.load_facebook_model('cc.ko.300.bin')
+    paddedarray = np.array([ko_model.wv.word_vec(token) for x in padded_sentences for token in x])
+    final_array = paddedarray.reshape(-1,max_len,300)
+    return final_array
 
 #tokenizer fit 해서 pkl 형태로 저장
 def make_tokenizer_pkl():
@@ -386,8 +393,8 @@ def model3_context(path, dropout = 0.5, embedding_dim = 100, max_length=30, batc
   input_shape = (max_length, )
   model_input = tf.keras.layers.Input(shape=input_shape)
   z = model_input
+  embedding = tf.keras.layers.Embedding(vocab_size, embedding_dim, input_length=max_length)(z)
   for sz in filter_sizes:
-      embedding = tf.keras.layers.Embedding(vocab_size, embedding_dim, input_length=max_length)(z)
       conv = tf.keras.layers.Conv1D(filters=num_filters,
                           kernel_size=sz,
                           padding="valid",
