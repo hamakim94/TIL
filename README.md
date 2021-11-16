@@ -114,3 +114,33 @@ dis를 활용해 제한 구하기( 11/11)
   - if, elif, else로 나눠서, 각각 DFS 따로 넣으면 사다리 역순으로 갈 수 있음.
 - 그치, for문은 반복이고, 조건문은 그냥 각 조건에 따라 들어간다는거야!
 
+
+
+# 21/11/16 DFS(combi), Divide and Conquer AL
+
+### DFS(using combination)
+
+- when making CB(combination) by using DFS
+  - cb = [0]*len(size), cb[L] = any type of data(tuple, list, etc..)
+  - **it's important to make empty list! ** => much easier
+  - if we append to an empty list => **have to pop after DFS** 
+- using LOOP with  k = [ (tuple), (tuple)] (반복문)
+
+~~~ python
+for i in range(len(LOOP)): 
+    x = LOOP[i][0]
+    y = LOOP[i][1]
+~~~
+
+much easier to approach data
+
+### Divide and conquer Algorithm
+
+- using recursive function
+- sorting array(list)
+- using indexes(lt, rt)
+- go through all recursive(divide arr into 2 pieces)
+- then do comparison(using while, lt+1, rt+1 ... )
+- it's important to think all circumstances
+- let's do it again tomorrow
+
