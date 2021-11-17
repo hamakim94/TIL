@@ -144,3 +144,76 @@ much easier to approach data
 - it's important to think all circumstances
 - let's do it again tomorrow
 
+# 21/11/17 Quick Sort / Dynamic Programming
+
+### Quick Sort
+
+- pivot( comparison standard) : my case : (rt)
+
+- ~~~python
+  # pivot and pos is important #
+  def Qsort(lt, rt)
+      if lt < rt: # most important
+          pivot = a[rt]
+          pos = lt
+          for i in range(lt, rt): # does not include *rt*
+              if a[i] < pivot:
+                  a[i], a[pos] = a[pos], a[i] # python list exchange
+                  pos += 1
+              a[rt], a[pos] = a[pos], a[rt]
+          Qsort(lt, pos - 1)
+          Qsort(pos + 1, rt) # pos : already find the right space
+  ~~~
+
+- Divide and Conquer : Post-Order(후위순회), Quick sort : Pre-Order(전위순회)?????????
+
+### Dynamic Programming(bottom-up) => bottom up
+
+- Problem I have : If I use DFS(recurisive fucntion), TIME LIMIT EXCEEDED....
+- Breakdown problem into small pieces!! ( then resolve bigger pieces )
+
+##### BOTTOM -> UP
+
+- recurrence relation(점화식)!!!!
+- READ QUESTION CAREFULLY, AND SEE THE in SMALLEST,  and SMALLEST + 1  and ...
+
+~~~ python
+re = [0] * ( n+1 )
+re[1] = 1 # by reading question
+re[2] = 2
+for i in range(3, n+1):
+    re[i] = re[i-1] + re[i-2] # recurrence relation
+~~~
+
+##### TOP-DOWN ( Memoization Algorithm) 
+
+- while recursion, make list(python) and memorize the output of the smaller part and use it
+
+  later when going up tree
+
+- **MEMOIZATION** makes top down faster
+
+  - without it, it's same as recursion( we have to memo and use it == prunning)
+
+  ~~~ python
+  def DFS(len):
+      if re[len] > 0: # prunning => makes it faster
+          return re[len]
+      if len == 1 or len == 2:
+          return len
+      else:
+          re[len] = DFS(len -1) + DFS(len - 2)
+          return re[len]
+  
+  if __name__ == "__main__":
+      n = int(input())
+      re = [0] * (n +1)
+      print(DFS(n))
+  ~~~
+
+  
+
+  
+
+
+
