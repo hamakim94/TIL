@@ -209,13 +209,12 @@ for i in range(3, n+1):
       n = int(input())
       re = [0] * (n +1)
       print(DFS(n))
-  ~~~
-
-  # 21/11/19  LIS(Longest Increasing Subsequence)
-
-  
-  
+   
+~~~
   
 
-dfsdfsdf
+# 21/11/19  LIS(Longest Increasing Subsequence)
 
+### LIS  is in the Dynamic Programming
+
+- we have to use **small part** to make a decision to bigger part(bottom-top)
