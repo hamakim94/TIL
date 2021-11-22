@@ -210,11 +210,41 @@ for i in range(3, n+1):
       re = [0] * (n +1)
       print(DFS(n))
    
-~~~
-  
-
+  ~~~
 # 21/11/19  LIS(Longest Increasing Subsequence)
 
 ### LIS  is in the Dynamic Programming
 
 - we have to use **small part** to make a decision to bigger part(bottom-top)
+- need new list, and need array, and use loop 2 times(loop is much faster than recursive)(11/22)
+
+
+
+# 21/11/22 LIS, etc
+
+### If sth looks hard -> (comparing two) => think opposite
+
+- ex) question : dx -> dy?
+- then, think dy, and see how dx changes
+
+### 2-dimension-array sort
+
+~~~python
+a = [[0,0], [2,2], [1,1]]
+
+a.sort(key = lambda x : x[i])  # i : index that i want to sort
+~~~
+
+- if I need to sthing maximum, and there are standards about it -> LIS, sort 1 thing first, and find another
+
+### finding max, min while using Loop
+
+~~~ python
+maxi = 0
+k = [1,2,3]
+for i in range(n):
+    maxi = max(k[i], maxi) 
+~~~
+
+
+
