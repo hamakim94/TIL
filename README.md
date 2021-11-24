@@ -269,6 +269,30 @@ Quite hard for me.. TT
 
 
 
+# 21/11/24 Nap-Sack, Floyd-Warshall Algorithm
+
+### Nap-Sack without overlap
+
+- actually, it's much easier to do with 2d dimension array, but it takes bunch of memories.
+- dy(i-1)(j-time) (2d) => just start loop backwards, then its score must be counted only once!
+- **INVERSE** is super important
+
+### Floyd-Warshall Algorithm
+
+- checking minimum price to go one to another places. **IN GRAPH **
+- we use dis(2D array), which is direct way to start-end, with price
+- then keep looking for better way to go..(using loop)
+
+~~~python
+for k in range(1, n+1):
+    for i in range(1, n+1):
+        for j in range(1, n+1):
+            dis[i][j] = min(dis[i][j], dis[i][k] + dis[k][j]) # dis is the point
+~~~
+
+- Floyd-Warshall
+- **my mistake** : dis\[i]\[j] = dis\[i][k] + dis\[k][i] => causes huge problem...... TT
+
 
 
 
