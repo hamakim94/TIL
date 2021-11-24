@@ -246,5 +246,30 @@ for i in range(n):
     maxi = max(k[i], maxi) 
 ~~~
 
+# 21/11/23 Dynamic(bottom-up, top-down) and NAPSACK Algorithm
+
+### bottom-up
+
+- pros about dynamic -> make problem simple by using simple(founded) rule
+- If i found rule -> think as simple as I can and fill the empty table by using simple rule
+- then fill other blanks to handle problem
+- 2D -> 1D[x,0], 1D[0,y] and fill other
+
+### top - down : MEMOIZATION => same as ch list in DFS
+
+Quite hard for me.. TT
+
+
+
+### Nap-Sack Algorithm
+
+- Dynamic -> must use dynamic table!
+- use only one example -> fill the table
+- and then use next one, which mean we're updating info(ex_ maximum price of the bag) on and on then conclude info which we used all kind of stone
+
+
+
+
+
 
 
