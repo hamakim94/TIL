@@ -291,9 +291,15 @@ for k in range(1, n+1):
 ~~~
 
 - Floyd-Warshall
-- **my mistake** : dis\[i]\[j] = dis\[i][k] + dis\[k][i] => causes huge problem...... TT
+- **my mistake** : dis\[i]\[j] = dis\[i][k] + dis\[k][i] => causes huge problem...... TT, must be dis\[k][j]
 
+# 21/11/25 Topological Sort(위상 정렬)
 
+- This Algorithm is for making order about complicated work flow(graph) with relation, making order(순서) about whole work
+- ex) 1 4 means I have to work 1 and then 4, 1 -> 4
+- DEGREE(진입차수) is important, we have to count degree first
+- by using Queue, if degree[i] == 0 : dq.append(i)
+- have to make dis(2D array about relation between two work(node)), and degree(1D array about input degree of node)
 
 
 
