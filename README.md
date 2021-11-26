@@ -303,3 +303,49 @@ for k in range(1, n+1):
 
 
 
+# 21/11/26 making game
+
+### I'm goint to use Turtle 
+
+what I need : Grid(background), blocks(object of turtle for game)
+
+##### turtle basic
+
+~~~python
+import turtle as t
+
+if __name__ == "__main__":
+    sc = t.Screen()
+    sc.bgcolor("black")
+    sc.setup(width= 600, height= 750)
+    
+    
+    blocks = t.Turtle() # define turtle, and speed, shape, size, color
+    blocks.penup() # which doesn't show moving line
+    blocks.color('red')
+    blocks.speed(0) # 0 is fastest
+    blocks.shape('turtle')
+    blocks.goto(-200, 200) # Turtle location looks like 2d function, (x,y)
+    
+    sc.mainloop() # This must be bottom of the code
+    
+~~~
+
+- Then, we have to make grid with Loop(2d List)
+- 24*12 size, by using loop
+- have to make wall => 7
+- by using blocks and grid, define function by using for loop 2 times
+- (define x, y, moveing, color, and etc)
+
+### Next Step
+
+- step 1. fill the bottom 3 row with colors
+- step 2. make class Brick to get its location and color
+
+- step 3. in the while loop, we have to switch location number during loop
+
+- too slow. we need some more in turtle :  **sc.tracer(False) , while, sc.update()**
+
+- still slow, in turtle object, block.setundobuffer(None), during defing drawing, block.clear()
+
+- step 4. By using while loop, drop the brick until grid\[y][x] != 0, drops
