@@ -14,6 +14,8 @@ def draw_square(block, grid):
             sy = yy - 22*y
             block.goto(sx, sy)
             block.color(colors[grid[y][x]])
+            if y == 15 and grid[y][x] == 7:
+                block.color('red')
             block.stamp()
 
 class Bricks():
@@ -46,7 +48,39 @@ def DFS(y, x, grid, color):
         if 0<yy<24 and 0 < xx < 13:
             if grid[yy][xx] == color and ch[yy][xx] == 0:
                 DFS(yy, xx, grid, color)
+
+def max_height(grid):
+    for y in range(1, 24):
+        for x in range(1,13):
+            if grid[y][x] != 0:
+                return y
+
+# 우선 쉽게 생각, for문을 돌면서 0이면 y-1 해가며 0이 아닌 지점을 찾고, 그 지점에 있는 숫자를 원래 숫자에..!                
+def grid_update(grid, blank):
+    for y, x in blank:
+        grid[y][x] = 0
+    height = max_height(grid)
+    for y in range(23, height - 1, -1):
+        for x in range(1, 13):
+            if grid[y][x] == 0:
+                tmp_y = y
+                while grid[tmp_y-1][x] == 0 and tmp_y -1 > 0:
+                    tmp_y -= 1
+                grid[y][x] = grid[tmp_y-1][x] 
+                grid[tmp_y-1][x] = 0
                 
+            
+
+def game_over():
+    pen.up()
+    pen.goto(-120,100)
+    pen.write("Game Over", font= ('Courier', 30))
+    
+def you_win():
+    pen.up()
+    pen.goto(-120,100)
+    pen.write("You Win!!", font = ('Courier', 20))
+
     
     
 
@@ -78,6 +112,12 @@ if __name__ == "__main__":
     block.setundobuffer(None)
     # block.goto(-200,200)
     
+    pen = t.Turtle()
+    pen.ht()
+    pen.goto(-80, 290)
+    pen.color('white')
+    pen.write("Block Game", font= ( 'Courier', 20))
+    
     brick = Bricks()
     grid[brick.y][brick.x] = brick.color
     
@@ -95,7 +135,20 @@ if __name__ == "__main__":
             ch = [ [0]*13 for _ in range(24)]
             blank = []
             DFS(brick.y, brick.x, grid, brick.color)
-            print(len(blank))
+            # 지우기
+            if len(blank) >= 4:
+                grid_update(grid, blank)
+            height = max_height(grid)
+            if height <= 15:
+                game_over()
+                break
+            elif height >= 22:
+                draw_square(grid)
+                you_win()
+                break
+            
+            # 중력작용
+            
             brick = Bricks()
             
         draw_square(block, grid)
@@ -108,7 +161,12 @@ if __name__ == "__main__":
     # still slow, in turtle object, block.setundobuffer(None), during while, block.clear()
     # 목표 3. By using while loop, drop the brick until grid[y][x] != 0
     
+    # 12/01 목표 : 연결된 길이가 4 이상이면 지우고, 중력작용해서 떨어뜨리기
+    # 12/01 목표2: 행이 15가 되면(많이 쌓이면), Game Over 출력
+    #              마찬가지로 행이 23 이상(2줄)이 되면 You Win 출력
+    #              게임보드 위 Block Game 출력(-80, 290)
     sc.mainloop()
+    
     
     
     
