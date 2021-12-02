@@ -68,7 +68,25 @@ def grid_update(grid, blank):
                     tmp_y -= 1
                 grid[y][x] = grid[tmp_y-1][x] 
                 grid[tmp_y-1][x] = 0
-                
+
+def continual_remove():
+    global blank, ch
+    while True:# flag라는 조건을 만들어서, 아무 변화도 없을 때 그만두는걸로 하자
+        flag = 1
+        for y in range(23, 15, -1):
+            for x in range(1,13):
+                if grid[y][x] != 0:
+                    ch = [ [0]*13 for _ in range(24)]
+                    blank = []
+                    DFS(y, x, grid, grid[y][x])
+                    if len(blank) >= 4:
+                        grid_update(grid, blank)
+                        draw_square(block, grid)
+                        flag = 0
+        if flag == 1:
+            break
+                    
+                        
             
 
 def game_over():
@@ -79,7 +97,7 @@ def game_over():
 def you_win():
     pen.up()
     pen.goto(-120,100)
-    pen.write("You Win!!", font = ('Courier', 20))
+    pen.write("You Win!!", font = ('Courier', 30))
 
     
     
@@ -138,12 +156,13 @@ if __name__ == "__main__":
             # 지우기
             if len(blank) >= 4:
                 grid_update(grid, blank)
+                continual_remove()
             height = max_height(grid)
             if height <= 15:
                 game_over()
                 break
             elif height >= 22:
-                draw_square(grid)
+                draw_square(block, grid)
                 you_win()
                 break
             
@@ -165,6 +184,9 @@ if __name__ == "__main__":
     # 12/01 목표2: 행이 15가 되면(많이 쌓이면), Game Over 출력
     #              마찬가지로 행이 23 이상(2줄)이 되면 You Win 출력
     #              게임보드 위 Block Game 출력(-80, 290)
+    # 12/02 목표 : 블록이 지워졌을 때, 연쇄반응이 일어나지 않아
+    #              그래서 연쇄적으로 일어났으면 좋겠다
+
     sc.mainloop()
     
     
