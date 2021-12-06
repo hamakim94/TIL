@@ -341,11 +341,41 @@ if __name__ == "__main__":
 
 - step 1. fill the bottom 3 row with colors
 - step 2. make class Brick to get its location and color
-
 - step 3. in the while loop, we have to switch location number during loop
-
 - too slow. we need some more in turtle :  **sc.tracer(False) , while, sc.update()**
-
 - still slow, in turtle object, block.setundobuffer(None), during defing drawing, block.clear()
-
 - step 4. By using while loop, drop the brick until grid\[y][x] != 0, drops
+
+
+
+# Programmers DFS problems/solutions
+
+### 21/12/06
+
+- Programmers problems has its input in 
+
+- ~~~ python 
+  def solution(input1, input2, ...)
+  ~~~
+
+- we have to use input 1 input 2 in the solution.
+
+### BFS : have to use stack!!
+
+- network size question : can use stack to find empty place
+
+- ~~~python
+  i = 0
+  while 0 in cnt:
+      while cnt[i] == 0:
+          DFS()
+        	ans += 1
+      i+=1
+  ~~~
+
+- (if there is 0 in cnt, do while until all things in cnt != 0 )
+
+- use this to cnt network's number 
+
+### .. SUPER HARD, Must do more things 
+
