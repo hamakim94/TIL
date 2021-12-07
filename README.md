@@ -379,3 +379,30 @@ if __name__ == "__main__":
 
 ### .. SUPER HARD, Must do more things 
 
+
+
+# 21/12/07 Binary Search 
+
+### FIND MAXIMUM!! (RT range!!!) key point to approach problem
+
+- It's important to count all possible range
+
+(even though question has its own limit, I must find the **REAL** Limits of data to use binary search)
+
+(it may skip the answer's number)
+
+~~~python
+# How to make counting cd(if its in the list form, counting maximum weight)
+a = [1,2,3,4,5] 
+def count_cd(number):
+    cnt = 1                 # This is important, we will use 1 CD and put the memories
+    sum = 0
+    for i in a:
+        if sum + i > number:
+            cnt += 1
+            sum = i
+        else:
+            sum += i
+    return cnt
+~~~
+
