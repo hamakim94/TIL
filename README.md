@@ -45,7 +45,10 @@
 
 ### BFS : 주로 While문을 활용한다 + Queue!
 
-- from collections import deque
+~~~ python 
+from collections import deque
+~~~
+
 - for문을 돌면서, que에 append 하고, 만약 있으면 안 하고, 없으면 체크하고 하고.
 - 그다음 popleft()하고 하나씩 pop해서 계속 진행!
 - while문을 쓰고,  어떻게 끝날지 생각하는게 중요하다!
@@ -405,4 +408,37 @@ def count_cd(number):
             sum += i
     return cnt
 ~~~
+
+# 21/12/08  자료구조(Stack, Heap, etc...)
+
+### STACK : LIFO(Last in First out)
+
+- picking up large number. (Make largest number by deleting **m** numbers)
+
+~~~python
+stack = []
+for x in num:
+    while stack and m > 0 and stack[-1] < x: # if stack, do the while
+        stack.pop()
+        m -= 1
+    stack.append(x)       # after picking up numbers, append!!! important
+    
+if m != 0:     
+    stack = stack[:-m] # this is making question easier, slice!!
+~~~
+
+### Cutting line Question
+
+- If i have to compare before elemenst in for loop:
+  - **USE INDEX** , super easy
+
+
+
+### Queue : FIFO(First in First out)
+
+~~~python
+from collections import deque
+~~~
+
+  응급실 강의보고 다시 하기
 
