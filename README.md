@@ -442,3 +442,58 @@ from collections import deque
 
   응급실 강의보고 다시 하기
 
+### ORDER(순서)는 너무 중요하다, 문제 제대로읽기..
+
+- 순서를 만들기 위해선 입력을 que로, 그다음 popleft 해서 해당 문자와 비교
+- 같으면 계속 진행, 다르면 out
+
+
+
+# 21/12/09  Hash, Heap
+
+### Hash == Dictionary in Python
+
+### Heap : Binary Tree
+
+~~~ python
+import heapq as hq
+a= []
+
+hq.heappush(a, n) # a라는 리스트에 heap을 유지한 채로 넣어라~
+~~~
+
+- node(element), 
+- edge(line), 
+- subtree(left subtree, right subtree)
+- Level( Depth of Tree, highest(0), lowest(n))
+- input depens on level sequece(그냥 빈 칸 찾아서 들어감, Level)
+  - first put, and compare size with parent node(upheap)
+- if pop, parent node's elements pops out
+  - and last element of tree comes to parent's node(Big mother)
+
+### 만약 최대힙?
+
+- 숫자의 부호만 바꾸면 된다네, 그럼 똑같은 효과
+
+
+
+## if \_\_name\_\_ == "\_\_main__":
+
+if I run ex.py  in ex.py( we call this as **MODULE**)
+
+python's variable \_\_name\_\_  == "\_\_main__:" 
+
+however, when I import Module such as 
+
+~~~python
+import ex
+~~~
+
+python's variable \_\_name\_\_  == ex , which executes(실행) whole program
+
+by defining if  \_\_name\_\_  == "\_\_main__:"  and code,
+
+codes below if  \_\_name\_\_  == "\_\_main__": only executes if it's in the ex.py
+
+do not executes while importing module
+
