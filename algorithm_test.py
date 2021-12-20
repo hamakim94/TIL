@@ -1,18 +1,25 @@
 import sys
-sys.stdin = open('C:/Users/mingy/OneDrive/바탕 화면/Algorithm/input.txt', 'rt')
+sys.stdin = open('C:/Users/User/Desktop/Algorithm/input.txt', 'rt')
 
-n = int(sys.stdin.readline())
+n = input().upper()
+ans = {}
 
-cnt = 0
-for i in range(1,n+1):
-    k = str(i)
-    if len(k) <= 2:
-        cnt += 1
-    else:
-        t = set()
-        for j in range(len(k)-1):
-            t.add( int(k[j]) - int(k[j+1]))
-        if len(t) == 1:
-            cnt += 1
+for i in n:
+    ans[i] = 0
+for i in n:
+    ans[i] += 1
 
-print(cnt)
+res = [] 
+maxi = 0
+for i in ans.values():
+    if i > maxi:
+        maxi = i
+        
+for a,b in ans.items():
+    if b == maxi:
+        res.append(a)
+
+if len(res) >= 2:
+    print('?')
+else:
+    print(res[0])
