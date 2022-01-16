@@ -146,3 +146,8 @@ import java.util.List;
 <List>Webelements news = ... // : 이 또한 자료형이다..
 ~~~
 
+
+
+## 2022.01.16 
+
+- 이미 알고있는 객체에 .찍으면 메서드들 나오잖아, 그걸 해주는게 Boxing
