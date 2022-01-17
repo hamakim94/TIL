@@ -150,4 +150,94 @@ import java.util.List;
 
 ## 2022.01.16 
 
-- 이미 알고있는 객체에 .찍으면 메서드들 나오잖아, 그걸 해주는게 Boxing
+- dl이미 알고있는 객체에 .찍으면 메서드들 나오잖아, 그걸 해주는게 Boxing
+
+
+
+## 2022.01.17
+
+- 컴퓨터 기초
+  - x86 : 옛날에 컴퓨터(인텔)은 cpu명이 286 386 .. 등으로 나왔따
+  - 팬티엄 2? 부터 32bit(4byte)를 기본, 애초에 ip도 4바이트
+  - 그래서 x86 ~ 써있으면 대충 32bit, 나중에 x64
+
+- 1KB => 1024Byte
+
+- 1 MB => 1024KB
+
+- 1 GB => 1024MB  
+
+  - 따라서 램 4Gb => 4,294,967,296 바이트  == 2^32, 즉 32비트 체제
+  - *** 주소는 1씩 증가할때마다 1byte, 데이터는 1씩 증가할때마다 1bit 증가***
+
+  
+
+- 잡지식
+  - 1G : 아날로그 통화
+  - 2G : 문자
+  - 3G : 영상통화
+  - 4G : IP통신, ALL IP(통화하고 바로끄면 기록이 안 남는데, IP로 지정되면 남아.)
+- 키보드
+  - 보통 키보드가 7비트(128개 정도 써,) => 그래서 ASCII코드가 나온 것
+
+
+
+
+
+- String 자료형은 특이하다. 분명 참조형인데 syso가 가능하다...
+
+- Scanner
+
+~~~java
+// 입력을 받기 위해 입력을 도와줄 객체가 필요
+		// ctrl + space + o : import
+		Scanner sc = new Scanner(System.in); 
+		
+		// bool
+		boolean flag = sc.nextBoolean();
+		// 문자 하나만 불가, 
+		// char a = sc.nextChar()????
+		
+		// 정수형 입력
+		byte bnum = sc.nextByte();
+		short num = sc.nextShort();
+		int age = sc.nextInt();
+		long money = sc.nextLong();
+		
+		// 실수형 입력
+		float fnum = sc.nextFloat();
+		double dnum = sc.nextDouble();
+		
+		// 문자열 종류 파악하기
+		String name = sc.next();
+		
+		//문자 하나만을 입력받고싶으면
+		char c = sc.next().charAt(0);
+		
+		System.out.println();
+~~~
+
+- Java에서, / 기호는 몫이다.
+- 그래서 1의 자리수 내림을 한다면, 
+
+~~~java
+int a = 27;
+age = a / 10 * 10(20대);
+age = a - (a % 10)
+~~~
+
+- 반올림 쉽게 하려면, 5를 더한 후 내림을 한다(원하는 자릿수)
+
+
+
+- do - while 문:
+  - 조건문에서 쓰이는 변수가 반복문 안에서 결정될때?(여러번 인풋 받고싶어!)
+
+
+
+- class 이름 바꾸기 
+  - 우클릭 - refactor - rename, 나중에 모든걸 다 한번에 바꿀 수 도 있음....
+
+
+
+- codeup.kr 코드업 기초100제! (C언어 들어가서 JAVA로!)
