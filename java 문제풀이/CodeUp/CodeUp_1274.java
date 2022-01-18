@@ -13,9 +13,8 @@ public class CodeUp_1274 {
 		int cnt = 1;
 
 		for (int i = 2; i < n + 1; i++) {
-			if (n % i == 0) {
-				cnt++;
-			}
+			cnt = (n % i == 0) ? cnt++ : cnt;
+
 		}
 
 		if (cnt == 2) {
