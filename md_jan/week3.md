@@ -809,5 +809,17 @@ Parent P = new Child();
   - valueof :  Object의 toString의 결과를 내가 받아
   - 그래서 toString을 overiding하면 println도 바껴!!
 
+# 22/01/23
 
+## 실수 모음
 
+- 틀린거, 자동 완성으로 다른 패키지의 같은 이름의 클래스 import -> 틀림
+- 기본 접근 제한자가 default -> 다른 패키지에서 접근 불가능
+- 입력 받을 떄, 그냥 print로 하자. 개행까지 받아버림
+- 질문하자. 내 시간이 아깝다
+
+- private -> getter / setter로만 접근 가능
+- 객체의 값을 비교할 땐, equals method 사용
+- public static main : 결국 정적 블록, 따라서 static 함수만 불러올 수 있다.
+- 조회를 할 땐, 임시로 상태를 이상하게 만들어서(-1), 그 값을 변경하도록, 만약 -1이면 없다고 할 수 있음
+- 한 번에 입력받을 생각보단, 지금은 next, next()를 여러번 하는걸 직접 명시해주면 된다.

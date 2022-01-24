@@ -138,3 +138,16 @@ catch(Exception e){ // 발생할 때 처리방법을 써서, 그냥 밑 코드�
 
 - 다중 catch문
   - 상속 관계, 작은 범위(자식)에서 큰 범위(조상) 순으로.
+
+## 문제풀이 틀린거
+
+- String.isIndexOf() -> 만약 포함되지 않으면 -1반환
+- instanceof 사용법 : 객체 instanceof 클래스 (연산자 느낌이 강해)
+
+  - 일단 자료를 담을 배열은 부모클래스를 사용하고, 자식클래스인경우 Parent p = new Son s , 즉 캐스팅을 하자
+  - 그 다음 instanceof를 활용해서 만약 Son의 인스턴스가 맞다면 그때 형변환해서 사용!
+  - A instanceof B 은 boolean을 반환, 따라서 !(A instanceof B)
+- 반복문의 조건을 활용해, 새로운 배열을 만들 때, index에 대한 혼동을 조심해야한다. 초기에 0 선언하고, 그걸 이용하면 안 돼.
+- 이런,, 복붙 할 때, 어디서 가져오는지 확인해, 배열 이름 정확히 확인해 제발..(가능하면 복붙 하지 말자 ㅠㅠ)
+- size 모를 땐, while문을 돌면서 하면 굳이 사이즈 가져올 필요 없음
+- toString : Overridng해서 정의해야 쓰기 편해, source - generate toString 이용해서 약간씩 수정하자
