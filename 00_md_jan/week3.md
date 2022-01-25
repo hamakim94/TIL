@@ -640,13 +640,18 @@ protected : 자식이라면, 어느 패키지에서도 가능
 
   ex) new Manager(); new Manager() = 인스턴스 2개씩
 
-  Manager() => 생성자 호출
+  **Manager() => 생성자 호출**
 
-- 기본 생성자에 private을 걸어서 하나만 생성하도록 해!!!!!
+- 기본 생성자에 private을 걸어서 하나만 생성하도록 해!!!!! 
 
-  private Manager () {}
+  - 라기보단, Manager 생성자를 외부에서 호출 가능하면 new로 객체 생성 가능,
 
-- 6.객체 성성도 안되니, 싱글턴 패턴 내에서 또 private 하게 객체를 생성해!(like 생성자)
+
+​			   따라서 private하게 만들어 생성자 자체를 못 쓰게 하자
+
+private Manager () {}
+
+- 6.객체 성성도 안되니, **싱글턴 패턴 내에서 또 private 하게 객체를 생성**해!(like 생성자)
 
 ​		private static Manager manager  = new Manager();
 
@@ -654,9 +659,9 @@ getter를 설정해서, pm 객체를 return하게 만들어준다!
 
 ​	public static Manager getManager(){
 
-​		return manager}
+​		return manager} // 위에있는 manager 객체를 return 근데 static해야 그거 가져옴
 
-- 그래서 새롭게 만들려고 하니, 또 안 돼 -> static(정적)이 아니여서!
+- 그래서 새롭게 만들려고 하니, 또 새롭게 만들어져 -> static(정적)이 아니여서!
   - 따라서 6.에서도 static을 설정해
 - 그런데 getManager에서 return도 필요해, 따라서 이것도 스태틱~
 - 따라서 이미 만들어진 객체를 돌려주기만해, 객체 생성은 오직 1번!
