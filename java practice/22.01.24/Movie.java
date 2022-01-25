@@ -1,23 +1,7 @@
-package com.ssafy.ws07.step2;
+package com.ssafy.ws06.step2;
 
 public class Movie {
 	private int id;
-	private String title;
-	private String director;
-	private String genre;
-	private int runningTime;
-
-	Movie() {
-
-	}
-
-	Movie(int id, String title, String director, String genre, int runningTime) {
-		this.id = id;
-		this.title = title;
-		this.director = director;
-		this.genre = genre;
-		this.runningTime = runningTime;
-	}
 
 	public int getId() {
 		return id;
@@ -59,10 +43,29 @@ public class Movie {
 		this.runningTime = runningTime;
 	}
 
-	@Override
-	public String toString() {
-		return "id = " + id + " title = " + title + " director = " + director + " genre = " + genre + " runningTime = "
-				+ runningTime;
+	private String title;
+	private String director;
+	private String genre;
+	private int runningTime;
+
+	// 생성자
+	Movie() {
 
 	}
+
+	Movie(int id, String title, String director, String genre, int runningTime) {
+
+		this.id = id;
+		this.title = title;
+		this.director = director;
+		this.genre = genre;
+		this.runningTime = runningTime;
+	}
+
+	@Override
+	public String toString() {
+		return "id=" + id + ", title=" + title + ", director=" + director + ", genre=" + genre + ", runningTime="
+				+ runningTime + " ";
+	}
+
 }

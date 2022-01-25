@@ -1,9 +1,8 @@
-package com.ssafy.ws07.step2;
-
+package com.ssafy.ws06.step2;
 
 public class MovieTest {
 	public static void main(String[] args) {
-		IMovieManager moviemanager  = MovieManagerImpl.getInstance();
+		MovieManager moviemanager = new MovieManager();
 		Movie m = new Movie( 1, "인절미", "김민균", "떡", 3); 
 		Movie m1 = new SeriesMovie( 2, "해삼1", "김민균", "해산물", 4, 1, "멍개천국"); 
 		Movie m2 = new SeriesMovie( 3, "해삼2", "김민균", "해산물", 5, 2, "멍개천국"); 
@@ -18,7 +17,6 @@ public class MovieTest {
 		Movie m6 = new SeriesMovie( 7, "말미잘2", "김민균", "바다", 5, 2, "니모"); 
 		Movie m7 = new SeriesMovie( 8, "말미잘3", "김민균", "바다", 6, 3, "니모"); 
 		Movie m8 = new SeriesMovie( 9, "말미잘4", "김민균", "바다", 7, 4, "니모"); 
-		
 		Movie m9 = new Movie( 10, "물고기 단편선", "김민균", "장르", 7); 
 		moviemanager.add(m5);
 		moviemanager.add(m6);
