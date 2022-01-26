@@ -253,22 +253,31 @@ ko.wikipedia 인터페이스
 - 인터페이스 다형성 적용
 - IChef -> Interface 
 
-
+---
 
 ## 예외처리
 
 - 예외 발생 시 프로그램의 비 정상 종료를 막고, 정상 실행 상태를 유지하는 것
 - 예외의 감지 / 예외 발생 시 => 동작할 코드를 작성!!
 
+- 컴파일 : JVM에 있는 컴파일러 -> .class
+
+  - Checked exception , Error : 빨간줄로 알려줌
 
 
-컴파일 : JVM에 있는 컴파일러 -> .class
+  - Unchecked exception : 눈에 안 보여.
 
-- Checked exception , Error : 빨간줄로 알려줌
+---
 
-- Unchecked exception : 눈에 안 보여.
+### 목표
 
+---
 
+#### **예외처리 문법 숙지 -> 예외 핸들링**
+
+#### **사용자 정의 예외 이용 -> 특정 상황 전달**
+
+---
 
 ### 직접 처리 try - catch - finally
 
@@ -298,10 +307,14 @@ try{
 - return : 그냥 프로그램 자체를 끝내버림
   - main method 자체가 끝나 .. 
 
+---
+
 ### 간접 처리 throws
 
 - **예외를 호출한 곳으로 전달**(처리 위힘)
 - 예외를 처리하지 않고 단순히 전달돼
+  - 나는 try-catch 안 해, 날 호출한 곳에서 해~
+
 - 예외를 전달받은 메서드는 다시 예외 처리 책임 발생
 
 ---
@@ -318,10 +331,268 @@ try{
 
 ---
 
+### 메서드 재정의와 throws
+
+- 매서드 재정의 시 조상클래스 메서드가 던지는 예외보다 부모 예외는 던질 수 없음
+
+---
+
 ### 사용자 정의 예외
 
+---
+
 #### 장점
+
+- **상황을 전달하기 위해서 사용한다**
 
 - 객체 활용 : 필요한 추가정보, 기능 활용 
 - 코드 재사용 : 비슷한 상황에서 예외 객체 재사용!
 - throw 매커니즘 이용 : 중간단계 return 필요 X
+
+### 에러 보는 법(로그 분석)
+
+에러 -> 밑에서부터 올라가면서, 가장 위에있는 내가 짠 코드를 찾아서 문제를 해결
+
+# 22/01/26
+
+### 복습
+
+#### 패키지 임포트
+
+- 우클릭 - 임포트 -> General - Existing Project into WorkSpace -> Browse -> 해당 **프로젝트** 찾아서 Finish
+
+#### 복구
+
+- 프로젝트 -> Restore From Local 뭐시기 -> 살아날 가능성 있음
+
+#### 디자인 패턴
+
+- 특정 기능을 수행하는 가장 이상적인 객체 설계 방법들
+  - 중 싱글턴 패턴이 있다.
+    - 1. 나의 타입의 변수(그 객체)를 스태틱으로
+      2. 생성자를 private -> 외부 생성 불가
+      3. 1에 대한 getter를 작성(static)
+
+---
+
+여기서부턴 이용법과 활용
+
+## Generic : 제네릭
+
+### 정의
+
+~~~Java
+Class_Name<String> generic = new Class_Name<String>();
+~~~
+
+- 다양한 타입의 객체를 다루는 메서드
+  - 컬렉션 클래스에서 컴파일시 타입 체크
+- 타입에 대해 비워놨다가 객체를 생성할 떄 타입을 결정
+
+- <>를 이용해.
+  - T안에 extends 뭐시기로 해서, 상속받은것만 쓸 수도(사용 자주 x)
+  - int(... a) : a[]인데, 가변길이배열
+  - <>안에 들어올 수 있는건 객체, int X, wrapper class인 Integer. 
+
+---
+
+### 예시
+
+- 클래스(노말박스)에서, 하위 클래스를 쓰고 싶은데
+- 하위 클래스 박스들을 만들어서 거기에서 그냥 바로 꺼내서 쓰고싶어
+  - 그럼 클래스 토이박스, 클래스 푸드박스를 다 만들어?
+  - 꺼낼 때 인스턴스오브로 확인해서 다 해야해?
+
+#### cf) 와일드카드
+
+- 규칙이 있는데, 거기에서 벗어난 친구들
+- GenericType 객체를 할당 받을 떄 와일드 카드처럼 이용 가능. <?> -> 제한 X
+
+## Collection Framework( java.util)
+
+### 정의
+
+- 자바에서 구현해놓은 자료구조 모음(패키지?)
+- 객체들을 한곳에 모아 놓고 편리하게 사용할 수 있는 환경 제공
+  - 1. 어떤 특성을 가진 자료구조인지
+    2. 어떻게 활용할건데?
+
+---
+
+### List interface
+
+- 순서가 있는 데이터의 집합, 데이터 중복 허락(ArrayList, LinkedList)
+  - 순서가 있어 -> 정렬 가능
+
+----
+
+#### ArrayList 
+
+매번 만들어, 없으면 없는거 복사해서 새로 또 배열 만들어..
+
+~~~ java
+List<String> name = new ArrayList<>(); // => . 하면, List참조, ArrayList에있는거쓰여
+									   //   overriding때문에
+ArrayList<String> name2 = new ArrayList<>(); // . 하면, ArrayList methods                                            
+
+ArrayList<String> list = new ArrayList<>(); 
+list.add("");
+~~~
+
+---
+
+#### LinkedList
+
+주소기억, 
+
+- 추가/삭제에 유리(vs ArrayList)
+- 만약 for문을 돌면서 조건에 맞으면 지운다?
+  - 거꾸로 돌면 깔끔하게 지나갈 수 있고
+  - **아니면 list의 index만 따로 기억해서, 한 번에 지우는 것!**
+
+#### 괄호의 유무
+- nums.length; => Array                       괄호 X -> 멤버변수
+- name.size(); 의 차이!!! => ArrayList   괄호(O) -> 메소드
+
+---
+
+### Set interface
+
+### 순서 X, 중복 허락 X
+
+- 데이터 자체 : key
+
+---
+
+#### HashSet
+
+- Hash : 같은 input -> 같은 곳으로 들어가 ( SHA-256, SHA 512 etc)
+  - input값이 같으면 같은 곳으로 받는거!
+  - 원본 파일과 다운로드 파일이 같은지 확인하는 방법?(1GB)
+  - 1024 * 1024 * 1024 * 8 : 한칸한칸 다 비교하는게 equals
+    - 그냥 Hash가 서로 같은지만 보더라도 높은 확률로 같다~( 2^256, 2^512 로 hash 넣어)
+    - 다르다는건 확신할 수 있음.
+- HashSet : 우선 Hash로 거리고 그다음 equals 함(다른거 빠르게 확인 가능)
+  - HashSet에 여러 원소를 넣기 위해선 new Integer(1)이런느낌
+  - 같다는걸 확인하기 위해서 hashcode로 포함 => 사실 그냥 hashset 쓸 때만!
+    - object equals는 주소가 같은지만 확인하기 때문! 
+    - Object의 hashCode는 주소값.
+
+---
+
+### Map interface( - dictionary?)
+
+- key에 바구니를 매닮, key로 데이터를 구분, key만 있으면 Set와 같다
+- key는 중복 불가(unique)
+
+~~~java
+Map<String, String> map = new HashMap<>();
+map.put("H", "123"); // 이런식으로~~
+map.get(key값) // value로
+~~~
+
+- List가 index로 식별 -> map은 set으로
+
+---
+
+### Comparable Interface (나와 다른것)
+
+- equals. (this(나)와 매개변수로운 객체를 비교)
+- compareTo : 내가먼저면 -1 같으면 0 , 뒤면 +1
+
+~~~java
+// 	Comparable을 구현해서 compareTo를 만들면
+Collections.sort(list) // 정렬이 가능해져
+~~~
+
+---
+
+### Comparator (2개 입력, 비교)
+
+
+
+
+
+## 입출력 API
+
+### I/O와 스트림
+
+- 데이터는 한쪽에서 주고 한 쪽에서 받는 구조
+  - 입력과 출력의 끝단 : Node
+  - 두 노드를 ㅇ녀결하고 데이트를 전송할 수 있는 개념 : Stream
+  - 스트림 : 단방향 통신, 하나의 스트림으로 입출력 동시 불가
+
+- 입출력 담당 최상위 클래스들
+
+|      | byte         | Char   |
+| ---- | ------------ | ------ |
+| 입력 | InputStream  | Reader |
+| 출력 | OutputStream | Writer |
+
+#### InputStream의 주요 메서드
+
+- read()
+  - public abstract int read() throws IOException
+    - byte 하나 읽어 int로( 읽을거 없으면 -1)
+  - public int read(byte[] b) throws IO;
+    - 데이터를 읽어  byte[]바가지를 채워.(개수도 알려줌)
+    -  읽을거 없으면 0
+- write()
+  - public abstract void write(int b) throws IOException
+  - public void write(byte[] b) throws IOException
+    - 마지막에 바이트단위로만 읽으면, 바가지가 커서 쓰레기데이터 생성
+  - public void write(byte[] b, int  off, int length) throws IOException
+    - read(byte[] b ) 한 값을 length에 넣음 (필요한 byte의 개수)
+
+### 보조 스트림
+
+- bytestream을 char스트림으로 변환
+  - InputStreamReader
+  - OutputStreamWriter
+- 버퍼링을 통한 속도 향상
+  - buffer : 큰 바가지(바이트가 큼 : 엔터가 들어올 때 까지 한 줄을 읽음.)
+  - BufferedInputStream / BufferedReader
+  - BufferedOutputStream / BufferedWriter
+- Scanner vs BufferedReader (둘중에 하나만 될 때가 있기도 함)
+
+#### 객체직렬화
+
+- 자료형이 다른 변수형을 1열로 줄세움
+- 1열로 세워진 변수형들을 다시 세우는걸(클래스) : 역직렬화
+- Serializble (추상 메서든데 진짜 아무것도 없는 껍데기, 그냥 표시하는거)
+
+
+
+- 객체나 있거나 쓰려면 Serialized를 implements를 해야만 파일에 써짐
+- using ObjectInputStream; ObjectOutputStream
+
+#### cf) 상대경로 절대경로
+
+- 상대경로 : 현재 위치로부터의 경로
+- 절대경로 : 루트로부터의 경로
+
+
+
+# 요약
+
+Generic이란?
+
+ArrayList vs LinkedList
+
+List Set Map이란?
+
+Set이 해쉬코드를 사용하므로, equals만으로 안되고 hashCode 필요
+
+
+
+입출력이란?
+
+File복사(xor암호화)
+
+보조스트림이란?
+
+BufferedReader + InputStreamReader 문자열로 효율적으로 읽기
+
+Serilizable을 implements해야 객체 직렬화가 가능
+
+ObjectOutputStream의 writeObjcet, Ok inputstream readObjeect(형변환 필요)
