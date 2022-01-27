@@ -1,3 +1,7 @@
+
+
+
+
 # 22/01/24
 
 ## 틀린거
@@ -564,7 +568,16 @@ Collections.sort(list) // 정렬이 가능해져
 
 
 - 객체나 있거나 쓰려면 Serialized를 implements를 해야만 파일에 써짐
+
 - using ObjectInputStream; ObjectOutputStream
+
+  
+
+보통: new new new new (메모리상 중구난방~~)
+
+=> 연속적으로 만들어 보내주기 위해 직렬화함!
+
+
 
 #### cf) 상대경로 절대경로
 
@@ -596,3 +609,168 @@ BufferedReader + InputStreamReader 문자열로 효율적으로 읽기
 Serilizable을 implements해야 객체 직렬화가 가능
 
 ObjectOutputStream의 writeObjcet, Ok inputstream readObjeect(형변환 필요)
+
+# 22/01/27
+
+- 꼭 명세서대로 하지말고, 배운거 다 써봐!
+
+## Collection Framework
+
+##### cf) hash
+
+- hashtable : 내용을 챱챱 적음 (인덱스가 있음)
+
+  값을 해쉬값으로 => hashtable 인댁스의 변환된 해쉬값으로 넣기
+
+- 만약 같은인덱스로 -> 그 안에서 또 해쉬를 넣기 ; 이것저것 할 수 있다
+  - 암호화로많이써..
+  - 값 -> 해쉬값(1방향함수,) SHA256 => hash암호 => DB에 저장
+  - 비밀번호는 모르나, hash값을 돌린 결과를 갖고 있음.
+    - 그래서 비번 변경 -> 인증 -> 새로 비밀번호 설정(모르니까)
+    - (해커)레인보우테이블 -> SHA256만들어놓음
+      - 그렇지만 사이트는 salt, 비번 뒤에 (임의 문자들)을 저장해서 hash로!!
+
+---
+
+### Set
+
+- 정렬 못함 => 별도의 기준이 필요함
+
+~~~java
+import java.util.Set;
+import java.util.HashSet;
+
+Set<T> set = new HashSet<>(); // generic이 들어간다
+
+Person a = new Person("해삼");
+Person b = new Person("멍개");
+Person c = new Person("해삼");
+//add
+for(Person p : pset){
+    syso(p);
+}
+// 하면 3줄이 나와
+// new라고 만들면 주소를 새로 찍어내서..
+
+// equals해도 안 돼, == 해도 다르대
+
+// equals Overridng
+
+public boolean equals(Object obj){
+	if(obj != null && obj instancof Person){
+        Person p = (Person)obj;
+        if(this.name.equals(p.name) && this.age == p.age)
+            return true;
+    }
+    return false;
+}
+
+// 이렇게 설정해줘도 pset에는 3개의 데이터가 들어감, 그래서 해쉬코드 재정의
+
+public int hashcode(){
+    return this.name.hashcode() + this.age; // 이런 방식으로 해쉬코드!
+}
+// 이거 source에서 generate equals and hashcode 있어
+~~~
+
+- 자식은 부모보다 표현을 작게할 수 없다.(public을 overrinding = 자식도 public)
+
+---
+
+### Map
+
+~~~java
+Map<T,T> map = new HashMap<>();
+~~~
+
+### ListSort
+
+~~~java
+List<Person> plist = new ArrayList<>();
+
+plist.add(new("aa", 26));
+plist.add(new("bb", 15));
+plist.add(new("cc", 90));
+plist.add(new("dd", 20));
+
+// 입력순대로 나온다.  
+for(Person p : plist){
+    syso(p)   
+}
+
+// 이름순정렬?  ==> 기준이 매개변수로 들어간단다, 객체가 들어가면 너가 정해줘!
+Collections.sort(plist);
+for(Person p : plist){
+    syso(p)   
+}
+// 나이순 정렬 : Comparator
+Collections.sort(plist, new AgeComparator());
+for(Person p : plist){
+    syso(p)   
+}
+
+// 이제.. 기준 2개 짬뽕
+Collections.sort(plist, new Comparator<Person>(){
+ 	@Ovverride
+    public int compare(Person o1, Person o2){
+		if (o1.age == o2.age){ // 같을 때 정렬 또 해줘
+            return o1.name.compareTo(o2.name);
+        }
+        return Integer.compare(o1.age, o2.age)
+    }
+}
+~~~
+
+~~~java
+public class Person implements Comparable<Person>;
+ //하고 Override
+@Override
+public int compareTo(Person o){
+    return this.name.compareTo(o.name);
+}
+// 내림차순
+public int compareTo(Person o){
+    return -this.name.compareTo(o.name);
+}
+~~~
+
+#### AgeComparator : 인자가 2개
+
+~~~java
+package collection;
+
+public class AgeComparator implements Comparator<Person>{
+    
+    @Override
+    public int compare(Person o1, Person o2){
+        //return o1.age - o2.age : 양수일 떄 자리가 바뀜
+        // o2가 더 크면, 가만히 있음.	
+        return Integer.compare(o1.age, o2.age)
+    }
+}
+~~~
+
+## I/O와 스트림
+
+- 노드 : 키보드, 모니터, 메모리, 파일, DB, 네트워크(양끝단)
+
+#### try-with-resources
+
+- try (   (())   ) : 괄호 하나 더 있는거
+- 자원 반납을 위해,, finally를 써서 close()를 해야하는데, 그러지 않아
+- try안에다가 괄호 안에 InputStream input 받고  read함
+  - 알아서 할당된 자원을 반납해
+
+cf) inputStream -> Unicode 문제 생길 수 있음~
+
+#### File 
+
+- 가장 기본적인 입출력 장치중 하나, 파일과 디렉터리 다루는 클래스
+
+#### 결정
+
+노드가 무엇 -> 타입은 문자(R/W)? 바이트(I/O) ? -> 방향은 ? -> 추가 기능(보조)?
+
+
+
+**ObjectInputStream - File 활용해서 실습해보기!!**
