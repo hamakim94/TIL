@@ -774,3 +774,173 @@ cf) inputStream -> Unicode 문제 생길 수 있음~
 
 
 **ObjectInputStream - File 활용해서 실습해보기!!**
+
+# 22/01/28 프로젝트
+
+- 추가학습목표
+
+  - 아 네트워크도 입출력이겠지!
+
+  - inputstream같은 비슷한게 있겠지
+  - 배웠던 개념을 토대로 학습하면(비슷한 느낌을 받아야함)
+
+​	
+
+## JSON 
+
+### 개요
+
+- 자바스크립트 오브젝트 노테이션(JS토대 개발, JS객체와 매우 유사함)
+- 그냥 텍스트, 어떤 프로그래밍 언어에서도 사용 가능
+- (서로 다른,이기종간) 웹클라이언트와 웹서버 간 데이터 교환에 이용
+
+- 웹브라우저 비동기 처리에 사용되는 AJAX 데이터 교환 형식
+  - Asynchronous Javascript and XML(데이터 교환 형식) 
+    - XML(이전 데이터 교환 형식) => JSON으로 바뀌고이썽 
+  - 주가데이터, 페이지 + 데이털를 주고받었는데
+  - 데이터만 받아와서 수정 => 점점 이렇게 변해짐
+  - 싱글페이지 어플리케이션을 만들기까지..(필요한 데이터만 받아서 해)
+
+### 장점
+
+- 주로 프런트엔드 프레임워크
+- 공식포멧 => 개발자 사이에 데이터 통신가능
+- 텍스트 => 읽고 쓰기 쉬윔
+- XML에 비해 용량이 적고 이해하기 쉽고
+- 언어와 플렛폼에 독립적 **
+
+---
+
+### 구조
+
+{"key" : value , ... }
+
+- key는 쌍따로 묶어
+- Value는 String일 경우만 쌍따
+  - Value(자료형) : object, array, number ,string, true, false, null ... 
+
+---
+
+#### Object
+
+- 시작 Object {      String(Key) : Value ... , (key:value), or   }object종료
+
+---
+
+#### Array
+
+- array [ val , val , or ]
+
+- ["kk", "tt", "pp"]
+
+- json array에서는 여러 자료형 담을 수 있지만, 자바에서 불러온다면? ㅎㄷㄷ
+
+---
+
+cf)  JS에서는 let 으로 변수 선언
+
+​		 a = (아무거나, num, String, function() 등)
+
+---
+
+### 클래스 객체 JSON 변환
+
+~~~java
+class Example{
+    String name;
+    Address addr;
+    ArrayList<String> list;
+    int age;// 어레이리스트, 또다른 Object속성 와도 ok
+} // 여러가지 들어갈 수 있음
+~~~
+
+== > 실제 프로그램을 이용해서 자바의 객체를 JSON, JSON을 Java 객체
+
+### GSON
+
+- 구글 Gson, Java객체를 JSON표현 변환
+- 상호 변환도 가능 (toJson, fromJson)
+- 라이브러리를 다운받고 프로젝트에 인식시켜야함
+
+java 소스코드 .java =컴파일> 바이트코드.class
+
+#### 라이브러리 인식
+
+JRE SystemLibrary : 열면 .jar 파일들 엄청많음 => .class 모아놓은게 .jar
+
+- 방법 1: JRE System Library에 끼워넣기. ( 비추천 ), JDK 폴더에 Lib에 넣어
+  - 그럼 모든 프로젝트들이 GSON 라이브러리 인식
+- 방법 2: 외부에 존재하는 jar파일을 인식시켜주기
+  - 프로젝트 우클릭 - Profe  Propertiess add extenal jobs - gson - apply
+  - 프로젝트가 다른 환경으로 이사가면 인식 X
+- 방법 3(추천) : 프로젝트 내부에 jar파일 인식 / 복사
+  - 프로젝트 우클릭 - new - folder(이름 lib) - 복붙 (이제 인식까지 해야함)
+  - .jar파일 ctrl + c -> lib 누른 상태에서 ctrl+v
+  - 프로젝트 우클릭 - Properties - Java Build Path 클릭 (좌측)- Libraries - addJars(우클릭) - lib - 폴더 들어가 Gson.jar 선택/
+  - 프로젝트가 통째로 이사가도 no Problem
+- 방법 4(강추) : 추후에.. => 라이브러리 관리 툴을 이용한다..!(MAVEN)
+  - 나중에 jar 70몇개.. 어떤 jar는 다른 jar에 종속적
+  - 근데 어떤게 문제 생겨 -> 다른거 다 바꿔야해
+  - Maven 라이브러리 빌드관리 툴으로 버전 명시
+  - 알아서 다 바뀜
+
+Gson 클래스를 이용해서 사용 방법을 알아보자
+
+#### GSON 사용법
+
+Gson gson = new Gson();
+
+String result = gson.toJson(객체 m)
+
+- Map -> JSON 문자열
+
+
+
+Test가 필요한 경우가 있어, 그럴 때 새로운 패키지 만들어서(.test 추가) 활용
+
+## MVC 구조 이해, 프로그램에 적용
+
+- Model <=> Controller <=> view ( 다 해줭)
+- 프론트, 백앤드 별도 구성요소
+- 서로 간섭 X
+- 여러명의 개발자가 동시에
+
+
+
+### M 
+
+- 동작을 수행(Back)
+- 사용자 View 어떻게 보일지 신경 X
+
+### V
+
+- 사용자 화면에 보이는 부분, 정보를 받아와 사용자에게 보여줌(Front)
+
+### C ( 우리가 한 ...Manager 비슷함)
+
+- 연결~
+
+
+
+## Cf)
+
+### DAO(Data Access Object)
+
+- database의 data에 access하는 트랜젝션 **객체**
+- 큰 클래스 위에, 이를 다루는 Dao패키지를 만들곤 함
+
+
+
+# 22/01/29
+
+#### Generic을 사용한 사용자 정의 형식을 JSON으로 저장
+
+- TypeToken<List<String>> list = new TypeToken<List<String>>() {};
+  Gson 안에 정의된 TyptToken class, 
+  자바의 런타임에서 제네릭을 인식할 수 없어
+  그래서 Gson안에있는 TyptToken<사용자정의자료> 해서
+  익명 클래스?처럼 만들어서 사용한다.
+
+
+
+- 근데 HashMap은 안 되네
