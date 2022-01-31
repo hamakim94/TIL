@@ -18,10 +18,10 @@ public class back_15552_빠른합 {
 		for (int i = 0; i<n; i++) {
 			st = new StringTokenizer(br.readLine());
 			wr.write(Integer.parseInt(st.nextToken()) + Integer.parseInt(st.nextToken()) + "\n");
-			wr.flush();
 		}
 		br.close();
 		wr.close();
+		
 	}
 }
 //public class back_15552_빠른합 {

@@ -933,20 +933,30 @@ Test가 필요한 경우가 있어, 그럴 때 새로운 패키지 만들어서(
 
 # 22/01/29
 
-#### Generic을 사용한 사용자 정의 형식을 JSON으로 저장
+### Gson TypeToken : Generic을 사용한 사용자 정의 형식을 JSON으로 저장
 
-- TypeToken<List<String>> list = new TypeToken<List<String>>() {};
-  Gson 안에 정의된 TyptToken class, 
-  자바의 런타임에서 제네릭을 인식할 수 없어
-  그래서 Gson안에있는 TyptToken<사용자정의자료> 해서
-  익명 클래스?처럼 만들어서 사용한다.
+~~~java
+// 사용법
+TypeToken<List<String>> list = new TypeToken<List<String>>() {};
+
+~~~
+
+- Gson 안에 정의된 TyptToken class, 자바의 런타임에서 제네릭을 인식할 수 없어
+  그래서 Gson안에있는 TyptToken<사용자정의자료> 해서 익명 클래스로 만들어서 사용한다.
+- 익명 클래스(1회 사용 클래스)
+  - new class(){} -> 1회 사용 끝
 
 
 
-- 근데 HashMap은 안 되네
+- 근데 HashMap은 안 된다. 정의를 하지 않았다..
 
 
 
 # 22/01/30
 
 - 대휴식
+
+
+
+
+
