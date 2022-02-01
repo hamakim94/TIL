@@ -938,7 +938,13 @@ Test가 필요한 경우가 있어, 그럴 때 새로운 패키지 만들어서(
 ~~~java
 // 사용법
 TypeToken<List<String>> list = new TypeToken<List<String>>() {};
-
+// Json file -> to ArrayList
+// Stringbuilder에, 
+// br.readline() != null 일 떄 까지
+// st.append(str).append(\n)
+// st.toString(); : 스트링으로 만들어야지
+ gson.fromJson(jsonStr, new TypeToken<ArrayList<UserInfo>>(){}.getType())
+     // TypeToken<ArrayList<UserInfo>>(){} : 익명 클래스(1회 활용) -> getType()을 통해 타입을 정의
 ~~~
 
 - Gson 안에 정의된 TyptToken class, 자바의 런타임에서 제네릭을 인식할 수 없어
@@ -948,7 +954,7 @@ TypeToken<List<String>> list = new TypeToken<List<String>>() {};
 
 
 
-- 근데 HashMap은 안 된다. 정의를 하지 않았다..
+- 근데 HashMap은 안 된다. Gson에서 ..정의를 하지 않았다..
 
 
 
