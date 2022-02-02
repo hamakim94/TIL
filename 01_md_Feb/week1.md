@@ -99,3 +99,77 @@ videoReviewDb = gson.fromJson(str, new TypeToken<HashMap<String, ArrayList<Video
 
 
 
+## 람다식
+
+- 익명 함수를 생성하기 위한 식(OOP보다 함수 지향 언어에 가까움)
+- " (매개변수) -> {실행코드} ", 인터페이스의 익명 구현 객체로 생성
+
+~~~ java
+// 기존
+Runnable runnable = new Runnable(){
+    public void run(){ ... }
+}
+~~~
+
+~~~java
+// 람다식
+Runnable runnable = () -> { ... } // ?????
+~~~
+
+### 식 형태
+
+- (타입 매개변수 ... ) -> {실행문 ; ... }
+  1. (타입 매개변수 ... ) 는 오른쪽 중괄호 블록을 실행하기 위해 필요한 값 제공
+  2. **매개변수 타입은 런타임시 대입되는 값에 따라 자동으로 인식, 지정 X** 
+  3. 하나씩 있다면 괄호 생략가능..
+  4. 매개변수 없어
+  5. 리턴값 가능, 리턴문만 있으면 그냥 다음같이
+
+~~~java
+1. (int a) -> {syso(a);}
+2. (a) -> {syso(a);}
+3. a -> sysout(a)
+4. () -> {실행문;}
+5.(x,y) -> {return x+y;}; // -> (x,y) -> x+y
+~~~
+
+### 타겟 타입, 함수적 인터페이스
+
+~~~ java
+@FunctionalInterface
+public interface MyFunctionalInterface{
+    public void method(int x); // 매개변수가 없기도 있기도..
+}
+~~~
+
+
+
+- 람다식은 인터페이스 변수에 대입됨(인터페이스의 익명 구현 객체 생성)
+- 람다식은 구현 클래스를 생성하고 객체화 
+- 인터페이스의 종류에 따라 작성 방법이 달라져 이를 람다식의 타겟 타입이라고 함.
+
+#### 타입에 따라 신경쓸 점
+
+- 람다식은 오직 하나의 메소드 정의.(2개 이상 X)
+- 오직 하나의 추상 메소드가 선언된 인터페이스만이 람다식의 타깃 가능
+  - @FunctionalInterface => Annotation으로 체크 가능
+- 매개변수는 오직 1개만,
+
+- 클래스의 멤버 사용 -> 외부 객체를 참조할 때는 외부.this.멤버변수
+- 로컬 변수 사용은 final만 가능
+- THread 되는 이유 : Thread 인터페이스는 리턴값이 없는 void만 함수가있어서.
+
+### 표준 API의 함수적 인터페이스
+
+- Counsumer : 그냥 소비
+- Supplier : getXXX메소드 있어, 호출한 곳으로 값을 돌려줌
+- Function
+  - 매가값과 리턴값이 있는 applyXXX() 메소드
+  - 매개값을 리턴값으로 매핑(타입 변환)하는 역할
+- Operator
+  - applyXXX()메소드, 매개값을 이용해 연산후 동일한 타입으로 리턴값을 제공 역할.
+- Predicate
+  - boolean 리턴값이 있는 testXXX() 메서드
+  - 매개값을 조사해서 true / false 반환..
+- 등등.. 기능이 많다!
+
