@@ -48,9 +48,10 @@ syso(myname.getClass().getSimpleName());
 
 ---
 
-## Java HashMap Key 값 변경법
+## Java HashMap Key 값 따라 value 변경법
 
 ~~~java
+// value는 int라고 가정
 hashmap.put(w, hashmap.get(w) +1);
 ~~~
 
@@ -64,7 +65,7 @@ ArrayList.set(index, new_value);
 
 ## 문자열 데이터 비교
 
-#### equals... 제기랄..
+#### equals... 제기랄.. 
 
 ---
 
@@ -72,7 +73,7 @@ ArrayList.set(index, new_value);
 
 ~~~java
 // 만약 알파벳을 활용해 인덱스를 0으로 만들고 싶을 때(only 소문자)
-
+ abc
 arr[ inputString.charAt(i) - 'a'] // 0번쨰 index로 가짐
 ~~~
 
