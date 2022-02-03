@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- table : 표 형태의 데이터 표시-->    
+    <!-- tr(table row) : 테이블의 하나의 행-->
+    <!-- td(table data) : 하나의 데이터. -->
+    <!-- th(table head) : 변수명같은 느낌! -->
+
+    <!-- 기본 테이블 형태, 경계도 없고, 경계도 없고, 정렬 X -->
+    <table>
+        <tr>
+            <td>이름</td>
+            <td>나이</td>
+            <td>주소</td>
+        </tr>
+        <tr>
+            <td>dd</td>
+            <td>222</td>
+            <td>남쪽의남쪽</td>
+        </tr>
+        <tr>
+            <td>tt</td>
+            <td>333</td>
+            <td>오딘가</td>
+        </tr>
+    </table>
+    <hr>
+    <!-- th 태그 활용해보자 -> 가운데 정렬까지!-->
+    <table>
+        <tr>
+            <th>이름</th>
+            <th>나이</th>
+            <th>주소</th>
+        </tr>
+        <tr>
+            <td>dd</td>
+            <td>222</td>
+            <td>북쪽의 북쪽</td>
+        </tr>
+        <tr>
+            <td>tt</td>
+            <td>333</td>
+            <td>오딘가</td>
+        </tr>
+    </table>
+    <hr>
+    <!-- border 설정-->
+    <table border="1">
+        <tr>
+            <th>이름</th>
+            <th>나이</th>
+            <th>주소</th>
+        </tr>
+        <tr>
+            <td>dd</td>
+            <td>222</td>
+            <td>북쪽의 북쪽</td>
+        </tr>
+        <tr>
+            <td>tt</td>
+            <td>333</td>
+            <td>오딘가</td>
+        </tr>
+    </table>
+    <hr>
+    <!-- caption : 표의 제목을 나타낸다-->
+    <table border="1">
+        <caption>사람 정보 표</caption>
+        <tr>
+            <th>이름</th>
+            <th>나이</th>
+            <th>주소</th>
+        </tr>
+        <tr>
+            <td>dd</td>
+            <td>222</td>
+            <td>북쪽의 북쪽</td>
+        </tr>
+        <tr>
+            <td>tt</td>
+            <td>333</td>
+            <td>오딘가</td>
+        </tr>
+    </table>
+
+    <hr>
+    <!-- tbody, thead : 테이블의 내용을 나타낼 때-->
+    <table border="1">
+        <caption>사람 정보 표</caption>
+        <thead>
+            <tr>
+                <th>이름</th>
+                <th>나이</th>
+                <th>주소</th>
+            </tr>
+        </thead>
+            
+        <tbody>
+            <tr>
+                <td>dd</td>
+                <td>222</td>
+                <td>북쪽의 북쪽</td>
+            </tr>
+            <tr>
+                <td>tt</td>
+                <td>333</td>
+                <td>오딘가</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>abc</td>
+                <td>abc</td>
+                <td>abc</td>
+            </tr>
+        </tfoot>
+        
+    </table>
+
+    <hr>
+    <!-- 테이블 합치기 -->
+
+    <!--colspan -->
+    <table border="1">
+        <tr>
+            <th>번호1</th>
+            <th>번호2</th> 
+            <th>번호3</th>
+        </tr>
+        <tr>
+            <!-- 두 칸 합치고 싶어! -->
+            <td colspan="2">12</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <!-- 두 칸 합치고 싶어! -->
+            <td >4</td>
+            <td colspan="2">56</td>
+        </tr>
+        <tr>
+            <td colspan="3">789</td>
+        </tr>
+
+        <tr>
+            <td colspan="4">333</td> <!-- 넘어가면 그냥 최대크기로-->
+        </tr>
+        <tr> <!-- 부족하면 그냥 그 칸만 채워줌-->
+            <td>1</td>
+            <td>2</td>
+        </tr>
+    </table>
+
+    <!-- 행 합치기 : rowspan -->
+    <!-- 그림을 먼저 그려놓고 생각하면 접근하기 편하다!!-->
+    <table border="1">
+        <tr>
+            <th>번1</th>
+            <th>번2</th>
+            <th>번3</th>
+        </tr>
+        <tr>
+            <td rowspan="2">1</td> <!-- 다음줄에 칸 이거 이미 쓰임-->
+            <td>2</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td rowspan="2">5</td><!-- 다음줄에 칸 이거 이미 쓰임-->
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>7</td>
+        </tr>
+    </table>
+    <hr>
+
+</body>
+</html>

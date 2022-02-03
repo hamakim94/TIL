@@ -173,3 +173,151 @@ public interface MyFunctionalInterface{
   - 매개값을 조사해서 true / false 반환..
 - 등등.. 기능이 많다!
 
+# 22/02/03
+
+cf) main함수
+
+​	public static void main(String[] args){}
+
+
+
+## HTML 기초	
+
+### HyperTextMarkupLanguage
+
+-  하이퍼텍스트 : 뭐 누르면 다른거 읽어지고, 다른거 읽어지고,, 왔다갔다
+- 마크업 : 웹 브라우저에게 웹 페이지 내의 글자나 이미지를 어떻게 나타낼 것인가에 대해 알려줌
+  - 역할 부여
+
+~~~ html
+<html>
+    <head> 다양한 설정, 정보
+        <title>
+            사이트탭쪽 글자가 바뀜
+        </title>
+    </head>
+    <body> # 실제 내용을 작성
+        
+    </body>
+    
+</html>
+~~~
+
+### 특징
+
+- **태그는 대소문자 구분이 없다**
+- 확장자는 html (htm을 쓸 순 있지만 주로 html!)
+- 엔터, 스페이스바, 탭이 적용되지 않는다
+
+### 모르는거 생기면
+
+- a tag html mdn라고 검색하기
+
+#### vscode
+
+- alt + b -> 알아서 실행(open in browser)
+- ㅁ html5 클릭 -> 알아서 init
+
+### a tag
+
+- href 속성 필수
+- target 
+  - _self : 내 창에서 해당 url 보여줌
+  - _blank : 새 탭에서 해당 url 보여줌
+- 상대경로 이동, 팝 위치에 해당하는곳으로 옮겨주는 기능도 있다.
+
+---
+
+### 대표적 block, inline 태그
+
+- div : 단락 구분 태그(block)
+  - 문서 위부터 끝까지 공간을 차지
+- span : 하나의 단락 내에 영역을 구분
+  - 내가 작성한 내용만큼의 공간을 차지함
+
+### 줄넘김 : br
+
+자세한건 예시(실습)들 보면서 하자..(테이블, border, 등등 )
+
+---
+
+### 폼 태그!
+
+- HTML의 꽃
+  - action : action에 적혀진 url로 정보를 보냄.
+  - method : 브라우저가 http 요청을 보낼때 사용하는 HTTP Method(GET, POST)
+    - Get : 우리가 보이는 url에 폼에 실어서 보냄 ( 보이기 떄문에, 다른사람이 봐도 괜찮은 정보)
+      - 주소에 넣기 때문에 넣을수 있는 한계가 있다
+      - CRUD 중, R만 Get
+    - Post : 안 보이는 곳에 폼을 통해 서버로 보냄.(회원가입 등등, 안전하게 처리 )
+      - 여긴 더 많은것을 넣을 수 있다.
+      - CUD 다 포스트
+  - enctype : 파일업로드 기능 구현 시 반드시 설정해야 할 속성
+
+
+
+ctrl + alt : 멀티커서
+
+
+
+## CSS
+
+### Selector   속성 : 값 속성 : 값
+
+h1 {color : blue; font-size = 12px;}
+
+<style>
+    p{
+        color : red;
+        etc..
+        /* 주석이다 */
+    }
+</style>
+
+### CSS 적용방식
+
+- 1. inline style
+     - 태그에서 스타일 속성을 직접 사용
+     - 스타일이 바꿀 부분이 많지 않아
+     - 형식 : <태그명 style = "속성명 : 값;, 속성명 : 값; "
+
+- 2. Internal Style :내부에 임의로 지정
+
+- 3. External Style : 외부 CSS 파일
+  4. 엄청많다..
+
+---
+
+### CSS Selector Game
+
+CSS Selector Game 하기!
+
+CSS Selector 관련 문서 찾아보면서 공부하기
+
+- CSS로 못만드는건 없어! 방법을 모를뿐!
+
+---
+
+### HTML의 태그는
+
+**content < padding <  border < margin**
+
+- content : 글이나 이미지 등 요소의 실제 내용
+- padding : 테두리 안 쪽의 내부 여백
+  - 엘리먼트와 컨텐츠 사이의 간격 ( 위족 오른쪽 아래쪽 왼쪽)
+  - 요소에 적용된 배경색, 이미지는 padding까지 적용..
+- border : 테두리 영역.
+
+- margin : 테두리 바깥의 외부 여백
+  - 엘리먼트와 엘리먼트간 간격..
+  - 배경색을 지정할 수 없다.
+  - 마진상쇄(더 큰걸로 마진이 챱챱)
+
+---
+
+### Layer 개요
+
+- 단순히 영역만 만들어줌
+- 겹쳐 쌓기 가능
+- 위치 조정 가능
+- 가시성 조절 가능 등

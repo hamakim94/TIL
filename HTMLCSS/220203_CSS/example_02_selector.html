@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+
+       
+        <style>
+            /* 전체 선택자*/
+            *{
+                color: red;
+            }
+            /* elementSelector */
+            h1{
+                background-color: blue;
+            }
+            /* classSelector -> class는 .으로 ! */
+            .size-up{
+                font-size: large;
+            }
+            /* idSelector -> id는 #으로 받아 */
+            #kim{
+                background-color: aquamarine;
+            }
+            /* 자손 선택자*/
+            #test ul{
+                border : 5px solid black;
+            }
+            /* 자식 선택자*/
+            #test > ul > ul{
+                background-color: skyblue;
+            }
+            /* 인접 선택자 */
+            #aespa + li{
+                color: blue;
+            }
+
+            /* 그룹 선택자 : 똑같은 곳을 여러군데 넣고 싶다면! */
+            h1, #aespa{
+                text-decoration: line-through;
+            }
+
+            /* 속성 선택자 [속성] */
+
+        </style>
+    </head>
+    <body>
+        <div>
+            <h1>내가 좋아하는 해산물은?</h1>
+            <ul>
+                <li>해삼</li>
+                <li id="kim">멍개</li>
+                <li class="size-up">말미잘</li>
+
+            </ul>
+        </div>
+        <div id = "test">
+            <h1>내가 좋아하는 연예인은?</h1>
+                <li>아이즈원</li>
+                <li >에스파</li>
+                <ul id="aespa">
+                    <li>카리나</li>
+                    <li>윈터</li>
+                    <li>닝닝</li>
+                    <li>지젤</li>
+                </ul>
+                <li >임영웅</li>
+                <li >임영웅</li>
+
+            </ul>
+        </div>
+    </body>
+</html>
