@@ -218,30 +218,58 @@ cf) main함수
 - alt + b -> 알아서 실행(open in browser)
 - ㅁ html5 클릭 -> 알아서 init
 
-### a tag
+### \<a tag>
 
 - href 속성 필수
+
 - target 
-  - _self : 내 창에서 해당 url 보여줌
+  - _self : 내 창에서 해당 url 보여줌 ( default )
   - _blank : 새 탭에서 해당 url 보여줌
+  
 - 상대경로 이동, 팝 위치에 해당하는곳으로 옮겨주는 기능도 있다.
+
+  ~~~html
+  <h1 id = "top"></h1>
+  수많은 줄들, 
+  <a href = "#top">위로</a>
+  ~~~
+
+  
 
 ---
 
 ### 대표적 block, inline 태그
 
-- div : 단락 구분 태그(block)
-  - 문서 위부터 끝까지 공간을 차지
-- span : 하나의 단락 내에 영역을 구분
-  - 내가 작성한 내용만큼의 공간을 차지함
+- block : 
+  - div : 단락 구분 태그(block)
+  - 문서 왼쪽부터 끝까지 공간을 차지
+  - p, h1~h6
 
-### 줄넘김 : br
+- inline : 엘리먼트의 내용만큼만 영역 ( 크기설정 불가 )
+  - span : 하나의 단락 내에 영역을 구분
+  - 내가 작성한 내용만큼의 공간을 차지함
+  - img, 
+    - 기타 mdn 보기
+
+
+---
+
+### 줄넘김 : \<br>
 
 자세한건 예시(실습)들 보면서 하자..(테이블, border, 등등 )
 
 ---
 
-### 폼 태그!
+### Table 
+
+- 그림 먼저 그리고 테이블을 만드는게 좋다
+-  \<thead>, \<tbody>, \<tfoot> 명시를 해주는게 좋다
+  - 장점 : 코드에 위치에 상관없이 테이블 밑에, 위치에 넣어줌!
+- \<tr> : 행, \<td>  : colspan, rowspan , \<th> head 
+
+---
+
+### \<form> 태그!
 
 - HTML의 꽃
   - action : action에 적혀진 url로 정보를 보냄.
@@ -253,6 +281,17 @@ cf) main함수
       - 여긴 더 많은것을 넣을 수 있다.
       - CUD 다 포스트
   - enctype : 파일업로드 기능 구현 시 반드시 설정해야 할 속성
+
+- \<input>
+  - name 속성 : url에 등록될 이름
+  - value 속성 : 기본적으로 가지고 있을 값
+- \<select name = "", id = " ">
+  - \<option value="">/\</option>
+  - \<option value="">/\</option>
+  - \<option value="">/\</option>   : key, value 형태로 전달해
+
+- \<textarea>
+  - 여러줄 입력 받을 떄
 
 
 
@@ -280,15 +319,47 @@ h1 {color : blue; font-size = 12px;}
      - 태그에서 스타일 속성을 직접 사용
      - 스타일이 바꿀 부분이 많지 않아
      - 형식 : <태그명 style = "속성명 : 값;, 속성명 : 값; "
-
 - 2. Internal Style :내부에 임의로 지정
-
 - 3. External Style : 외부 CSS 파일
   4. 엄청많다..
 
 ---
 
-### CSS Selector Game
+### 선택자 
+
+- #test > .memo : 자식( 내 바로 밑에 잇는 태그들만 해당)
+- #test .memo    : 자손( 내가 포함하고 있는 모든 것들, 다 나와!)
+- #test > .memo.bi : id가 테스트 바로 밑, 메모 클래스와 bi 클래스 모두 갖고 있는것다 나와!
+
+---
+
+### CSS 크기 지정 단위
+
+- px : 픽셀 단위의 해상도에 점 하나에 해당하는 절대 크기 지정
+- % : 부모 기준 상대 크기
+- em  : 1em : 부모와 동일, 2em 부모의 2배(배수)
+- rem : 루트 태그(16px) 기준 size 
+
+---
+
+### CSS 속성
+
+- background-... : 배경의 스타일을 변경할 떄
+
+- border-... : 엘리먼트의 테두리 스타일 변경
+- text-... : 텍스트의 스타일을 변경할 때 
+
+---
+
+### CSS 적용 우선순위
+
+- **!important > inline style> id > class > tag**
+- style 지정할 떄 나중에 적용된게 우선 순위야(같은 클래스에서,)
+  - id : 무적권 하나만 써!
+
+---
+
+#### CSS Selector Game
 
 CSS Selector Game 하기!
 
@@ -321,3 +392,221 @@ CSS Selector 관련 문서 찾아보면서 공부하기
 - 겹쳐 쌓기 가능
 - 위치 조정 가능
 - 가시성 조절 가능 등
+
+# 22/02/04
+
+## Quiz후기
+
+~~~java
+String a; // 이렇게 하면 초기값 설정 안 돼, String에 대한 이해가 부족하다
+String[] arr = new String[2];
+arr[1] = "Name";
+system.oyt.println(arr[0] + arr[1]); // 결과 nullName, 배열로 만들면 힙, 초기값 저장돼
+~~~
+
+- OOP is A PIE 다시정리
+  - A:
+  - P:
+  - I:
+  - E:
+
+
+---
+
+- try문에 여러개 에러가 발생할 떄
+
+  ~~~ java
+  int[] arr1 = new int[3];
+      try {
+          arr1[1] = arr1[1] / 0;
+          arr1[3] = 0;
+      } catch (ArrayIndexOutOfBoundsException e) {
+          System.out.println(2);
+      } catch (ArithmeticException e) {
+          System.out.println(1);
+      }
+  // 결과 : 1
+  // 먼저 일어난 에러에 대해서 처리해주나봐.. 몰랐네..
+  ~~~
+
+---
+
+- Switch - Case
+  - break문 없으면, 해당 case 아래에 있는 모든거 실행
+
+---
+
+- Object는, java.lang.Object
+
+  - java.lang 패키지는 자바 프로그래밍에 기본이 되는 클래스들
+  - import문 없이도 사용 가능
+
+  
+
+- HashSet 
+  - equals 재정의 할 때
+  - Hashcode라는게 없으면 다 다르게 인식함
+
+
+
+## HTML+CSS
+
+- favicon : 탭 옆에 있는 그림
+- \<img>에, alt ? => 이미지가 깨졌을 떄 나오는 명칭(시각장애분 위해서도 설정)
+  - alternative
+
+---
+
+### BootStrap
+
+- install 맨오른쪽 링크 클릭 -> 그냥 아이콘 사용 가능!
+- 아이콘이 아니라 텍스트, 그래서 텍스트 컬러 지정 가능
+
+---
+
+### Layer
+
+#### static(default, fixed, absolute, relative)
+
+- static :
+  -  좌표를 설정하더라도 값이 반영 X(일반적인 요소의 배치 순서를 따름)
+  - 부모 요소 내에서 배치될 때는 부모요소 위치를 기준으로 배치됨
+- fixed : 위치 고정
+  - 공간 차지 X
+  - 부모요소 관계 없음.
+    - 우리가 보고있는 화면 기준이다.
+    - 스크롤시 위치고정
+- absolute : 절대좌표  (top right bottom left 계산)
+  - 공간 차지 X
+  - 요소를 일반적인 문서 흐름에서 제거 후 레이아웃 
+  - **스태틱이 아닌 요소**를 찾아감(body - 부모요소)
+- relatvie : 
+  - 공간 차지 O
+  - 정상 흐름,  
+  - 상대적인 거리 (top right bottom left 계산)
+  - 레이아웃에서 요소가 차지하는 공간은 static일때와 같음
+
+​	html 태그는, 왼쪽 위로 가고싶어해!!
+
+---
+
+#### z - index
+
+- 박스가 겹쳐져 있는 경우 보여주는 순서!
+- 값이 큰게 위로 올라간다!!
+  - 입체적으로 봐야한다
+  - z축을 컨트롤해서 원하는 높이에 원하는걸 쌓겠다!
+
+---
+
+### float : 추후 공부
+
+- 특정 요소를 둥둥 떠다니게 해서 공간을 차지하지 않게돼
+
+## FLEXBOX
+
+- flexbox 인터페이스 내의 아이템 간 공간 배분과 강력한 정렬 기능을 제공하기 위한 1차원 레이아웃 모델
+
+### 주요 개념
+
+- 주축(Main Axios), 교차축(Cross Axios)
+  - 주축을 column 하면 교차축이 row가 돼
+-  시작선(start), 끝선(end)
+-  container와 item
+
+---
+
+### FLEX CONTAINER ( 부모 요소 )
+
+#### display가 Flex-Container 정의하는것
+
+- display 속성 이용, container를 생성
+- display : flex ; -block 성격의 container            (끝까지 영역 차지 )
+- display : inline-flex : - inline성격의 container (끝까지 영역 차지 X)
+
+---
+
+#### container 주요 속성
+
+- **flex-direction** : container안의 item들이 나열되는 방향
+
+  - row (default)| column | row-reverse | column | column-reverse
+
+  ---
+
+- **flex-wrap** : container안의 item의 크기가 container보다 크기보다 클때 줄 넘김
+
+  - nowrap : 한줄로 다넣어 (default) | wrap : 줄바꿈 | wrap-reverse: 밑에서부터 쌓아서 위로 넘겨줄게~
+
+  ---
+
+- **flex-flow** : 방향과 줄 넘김을 동시에 설정
+
+  - 위에 두개 조합, 총 12가지 (상상해보고 직접 타이핑 확인)
+  - flex-flow : row-reverse nowrap
+
+  ---
+
+- **justify-content** : **메인축** 정렬 제어
+
+  - flex-start : 메인축 시작쪽 정렬(row면, 좌측으로)
+  - flex-end : 메인축 끝 쪽 정렬(row면, 우측으로)
+  - center : 중앙 정렬
+  - space-between : 양 사이드를 끝으로 보내고, 나머지를 가운대로
+  - space-evenly : 남아있는 여백을, 공간 자체를 딱 떨어지게
+  - space-around : 남아있는 여백을, 모든 아이템 요소 왼,오른쪽 정확하게 똑같이 분배
+
+  ---
+
+- **align-items** : 교차축 정렬 제어 (만약 주축 row:)
+
+  - stretch(default) : 교차축 방향으로 쭉 늘려놔
+  - flex-start : 세로 위로 붙어!
+  - flex-end
+  - center : 교차축 기준 중앙! 
+  - baseline : 글자 끝선에 맞춰서 정렬하게됨(컨텐츠)
+
+  ---
+
+- **align-content** : wrap속성에 의해 여러 줄이 발생한 경우 **교차축** 정렬
+
+  - 교차축인데 두 줄이 된 친구가 있다면 쓸 수 있음
+
+  - (123
+
+       45)
+
+  - flex-start : 교차축 위로(크기 그대로)
+
+  - flex-end : 교차축 아래로(크기 그대로)
+
+    - 중력 작용 X, 그대로 밑으로 내려오지 땡겨지지 않아
+
+  - center : 중앙정렬
+  - space-around, space-between , space-evenly : 위에 있어 
+
+---
+
+### FLEX ITEM에 사용하는 주요 특성
+
+컨테이너에 작성하는게 아니라, 아이템에 직접 데이터를 작성
+
+- **order** : 숫자(기본값 0 )
+  - 낮은거 -> 큰거로 배치 순서 바꿀 수 있다
+- **flex-basis** : 크기 ( 너비만 바꿀 수 있다. )
+  - 주축 기준 크기로?
+- **flex-grow** : 팽창(기본값0), 음수 불가능, 양수 가능
+  - 기준 잡기가 애매하다
+  - 남아있는 여백을 가지고 비율로 나눠먹기
+- flex-shrink (잘 안 써)
+- **flex: ** grow, basis, shirnk 한 번에 쓸 수 있음.
+- **align-self** : 각각 요소에 접근에서 **교차축**을 이용해 정렬을 할게!
+  - auto
+  - stretch
+  - flex-start
+  - flex-end
+  - center
+
+---
+
+emmet : html 마법의 워드
