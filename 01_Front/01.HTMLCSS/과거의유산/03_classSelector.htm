@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>내부스타일 - 클래스방식</title>
+    <meta charset="utf-8" />
+    <style type="text/css">
+      .box_color {
+        background: skyblue;
+      }
+      .red_text {
+        color: red;
+        font-size: 25px;
+        text-align: right;
+      }
+      .white_text {
+        color: white;
+      }
+      .box_color.white_text {
+        border: 10px solid green;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box_color">
+      <hgroup>
+        <h1 class="box_color">CSS Syntax</h1>
+        <h2>스타일 적용하기</h2>
+      </hgroup>
+    </div>
+    <div class="box_color white_text">
+      <div>
+        <p>CSS</p>
+        <p class="red_text">CSS의 문법 구조</p>
+      </div>
+    </div>
+    <div>주소 : 서울 강남구 어느 동네</div>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+html, body{
+    height: 100%;
+    font-size: 15px;
+}
+
+.memo-area{
+    height: 100%;
+    background-color: skyblue;
+    position: relative;
+}
+.memo-area>button{
+    position: absolute;
+    top: 4px;
+    right:4px;
+}
+.memo-note{
+    width: 160px;
+    height: 180px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: white;
+}
+
+.memo-bar{
+    height: 20px;
+    padding : 1px 3px 0 0 ;
+    background: rgb(252,237,131);
+    text-align: right;
+}
+.memo-edit{
+    height: 158px;
+    background-color: #ffff9d;
+
+}
+
+.memo-edit-area{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+
+}
+
+.memo-edit-area:focus{
+    background-color: wheat;
+}

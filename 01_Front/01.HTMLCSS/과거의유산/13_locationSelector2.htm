@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title> 속성 선택 스타일 </title>
+<style type="text/css">
+    h1:nth-child(odd) {
+        background: tomato;
+    }
+    h1:nth-child(even) {
+        background: skyblue;
+    } 
+    
+    /* 
+    h1:nth-of-type(odd) {
+        background: tomato;
+    }
+    h1:nth-of-type(even) {
+        background: skyblue;
+    }
+    */
+     
+</style>                        
+</head>
+<body>
+
+    <h1>h1</h1>     <!--  1  -->
+    <h1>h2</h1>     <!--  2  -->
+    <p>주의사항</p>  <!--  3  -->
+    
+    <div>  <!--  4  -->
+            <h1>1</h1>     <!--  1  -->
+            <h1>2</h1>     <!--  2  -->
+            <h1>3</h1>     <!--  3  -->
+    </div>
+    
+    <h1>h3</h1>     <!--  5  -->
+    <p>주의사항</p>  <!--  6  -->
+    <h1>h4</h1>
+    <h1>h5</h1>
+    <h1>h6</h1>
+</body>
+</html>

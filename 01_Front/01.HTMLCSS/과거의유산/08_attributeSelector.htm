@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>속성 선택 스타일</title>
+    <style type="text/css">
+      * {
+        box-sizing: border-box;
+        margin: 10px;
+      }
+
+      /*  a 태그 중에서 href 속성이 존재하는 태그 */
+      a[href] {
+        background: tomato;
+        text-decoration: none;
+      }
+
+      /*  input 태그 중에서 type의 속성값이 text 인 태그 선택 */
+      input[type="text"] {
+        width: 300px;
+        border: 5px solid tomato;
+      }
+
+      /*  a 태그 중에서 href의 속성값이 http://로 시작 */
+      a[href^="http://"]
+      {
+        border: 5px solid black;
+      }
+
+      /*  a 태그 중에서 href의 속성값이 http://로 끝나는 것 */
+      a[href$=".jpg"] {
+        border: 5px solid skyblue;
+      }
+
+      /*  input 태그 중에서 name 속성값이 blog를 포함하는 태그 선택 */
+      input[name*="blog"] {
+        background: black;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>목차</h1>
+    <ul>
+      <li><a href="#">자바의 특징 및 역사</a></li>
+      <li><a href="http://www.naver.com">네이버</a></li>
+      <li><a href="flower.jpg">꽃</a></li>
+    </ul>
+
+    아이디 : <input type="text" name="id" /><br />
+    패스워드 : <input type="password" name="pass" /><br />
+    홈페이지 : <input type="text" name="homepage" /><br />
+    블로그 : <input type="text" name="my-blog" /><br />
+  </body>
+</html>

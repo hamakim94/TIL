@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>속성 선택 스타일</title>
+    <style type="text/css">
+      h1:nth-child(3n + 1) {
+        background: skyblue;
+      }
+      h1:nth-child(3n + 2) {
+        background: pink;
+      }
+      h1:nth-child(3n) {
+        background: tomato;
+      }
+      h1:nth-of-type(1) {
+        background: yellowgreen;
+      }
+      h1:nth-last-child(1) {
+        background: skyblue;
+      }
+      /* h1:nth-last-of-type(1) {
+      } */
+      /* 	h1:nth-of-type(2n + 1) { background: skyblue; } */
+      /* 	h1:nth-of-type(2n) { background: tomato; } */
+    </style>
+  </head>
+  <body>
+    <h1>1</h1>
+    <h1>2</h1>
+    <h1>3</h1>
+    <h1>4</h1>
+    <h1>5</h1>
+    <h1>6</h1>
+  </body>
+</html>

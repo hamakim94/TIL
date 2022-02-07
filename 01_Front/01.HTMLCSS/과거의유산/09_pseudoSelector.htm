@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>가상클래스 선택자</title>
+    <style type="text/css">
+      /* 엘리먼트에 포커스가 왔을 경우  */
+      input:focus {
+        background: black;
+        color: white;
+      }
+
+      /* 엘리먼트를 마우스로 누른 상태  */
+      input:active {
+        background: tomato;
+        color: white;
+      }
+
+      h2:hover {
+        background: #000000;
+        color: white;
+      }
+
+      p.bigletter::first-letter {
+        font-size: 30px;
+        font-weight: bold;
+        border: 1px solid #334455;
+        padding: 2px;
+        background: #ff3388;
+        color: white;
+      }
+
+      p.bigline::first-line {
+        font-size: 30px;
+        font-weight: bold;
+        border: 1px solid #334455;
+        padding: 2px;
+        background: #ff3388;
+        color: white;
+      }
+
+      ::selection {
+        background: #fb6;
+      }
+
+      #pseudo::before {
+        content: "오늘은 ";
+      }
+      #pseudo::after {
+        content: "옵니다.";
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>가상클래스</h1>
+    <h2>연습하기</h2>
+    <ul>
+      <li><a href="#1">네이버</a></li>
+      <li><a href="#2">다음</a></li>
+      <li><a href="#3">전투식량</a></li>
+    </ul>
+    <input type="text" value="마우스로 이곳을 클릭하세요" /><br />
+
+    <div id="pseudo">
+      <span>1</span>
+      비가
+      <span>2</span>
+    </div>
+    <p class="bigletter">오늘은 비가 옵니다.</p>
+    <p class="bigline">
+      오늘은 비가 옵니다.<br />
+      오늘은 비가 옵니다.<br />
+      오늘은 비가 옵니다.
+    </p>
+  </body>
+</html>
