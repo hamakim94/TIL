@@ -16,24 +16,37 @@
     <!-- 2. 해당 컨테이너들의 아이템, 비율을 2:1로 만든다, 여백 조금 필요할지도 -->
     <!-- 3. 왼쪽엔 자극적인 이미지, 오른쪽엔 이미지 -> 해당 유튜브 채널로 이동 -->
     <!-- 4. 설명, 리뷰, 링크 달기 -->
-
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- 준비물 : 자극적인 이미지 3개. 로고 3개 -->
     <div class="container">
         <!-- 유튜브 채널 추천 박스 만들기 -->
-        <blockquote class="blockquote text-center mt-3 bag">
-            <h1 class="mb-3 text-light bg-dark">알아두면 쓸모없는 B급 유튜브 채널</p>
-                <h2 class="blockquote-footer mt-3"><cite title="Source Title">알쓸B유 </cite> &nbsp&nbsp&nbsp&nbsp&nbsp 김민균 김소현 이도엽</h2>
-        </blockquote>
+
 
 
         <div id="carouselYoutubeChannels" class="carousel slide" data-bs-ride="carousel">
-            <!-- 제목을 넣어야 하지 -->
-
-
-            <!-- 회전목마 시작 -->
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <div class="row align-self-center">
+                    <div class="row">
                         <img src="./골쿠.PNG" class="col-8" alt="골쿠">
                         <div class="col-4 card">
                             <img src="./골쿠귀엽.PNG" class="card-img-top" alt="...">
@@ -41,8 +54,14 @@
                                 <h5 class="card-title">골드쿠폰</h5>
                                 <p class="card-text">왜 보는지 모르겠는 스피드 먹방. 맛있게 먹는것도 아니다, 그냥 빨리 먹고 솔직히 조금 더럽다. 그런데 먹방을 보고
                                     만족하는게 아니라 먹방을 보고 불만족스러워서 이 영상을 보면서 물을 끓이고 있는 자신을 발견할 수 있다.</p>
-                                <a href="https://www.youtube.com/watch?v=lW4i3RDNvlQ&t=57s"
-                                    class="btn btn-danger btn-block align-middle ">추천영상 보러
+
+                                <button type="button" class="btn btn-primary" data-toggle="modal"
+                                    data-target="#myModal">
+                                    Launch demo modal
+                                </button>
+
+                                <a href="https://www.youtube.com/watch?v=lW4i3RDNvlQ&t=57s" class="btn btn-danger">추천영상
+                                    보러
                                     가기</a>
                             </div>
                         </div>
@@ -60,7 +79,7 @@
                                 <p class="card-text">그의 요리는 빠르다, 아니 사실 편집이 빠르다. 사실 엄청 열심히 요리를 만드는데 그의 가벼운 편집은 마치 한국인이
                                     좋아하는 속도. 중간에 나오는 그의 강아지가 너무 귀여워서 재밌고, 또 그의 요리 퀄리티에 한 번 더 놀라게 된다. 나중에 나오는 박수와 호우 리액션이
                                     별미.</p>
-                                <a href="https://www.youtube.com/watch?v=iMMtxGAPhiQ" class="btn btn-danger">추천영상 보러
+                                <a href="https://www.youtube.com/watch?v=iMMtxGAPhiQ" class="btn btn-primary">추천영상 보러
                                     가기</a>
                             </div>
                         </div>
@@ -68,15 +87,15 @@
                 </div>
                 <div class="carousel-item">
                     <div class="row">
-                        <img src="./줄스.PNG" class="col-8" alt="줄스">
+                        <img src="./무쇠맨.PNG" class="col-8" alt="무쇠맨">
                         <div class="col-4 card">
-                            <img src="./줄스배경.PNG" class="card-img-top" alt="...">
+                            <img src="./무쇠맨배경.PNG" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title">김줄스 ZoolsKim</h5>
-                                <p class="card-text"> 서초구 Zools 오너, 시작은 미비한 악어 수조 만들기였다. 그러다가 본인의 욕망을 채우기 위해 홍천에 땅을 샀고,
-                                    땅을 갈아 돌을 채워 연못을 만들고, 하나의 자연 생태계를 만든다. 연못이 만들어지고 가물치 넣고 비단잉어 넣을 때 그 아름다움이 포인트, 너무
-                                    무리하게 달려와서 요즘은 업로드가 안 된다. </p>
-                                <a href="https://www.youtube.com/watch?v=iMMtxGAPhiQ" class="btn btn-danger">추천영상 보러
+                                <h5 class="card-title">무쇠맨</h5>
+                                <p class="card-text">그의 요리는 빠르다, 아니 사실 편집이 빠르다. 사실 엄청 열심히 요리를 만드는데 그의 가벼운 편집은 마치 한국인이
+                                    좋아하는 속도. 중간에 나오는 그의 강아지가 너무 귀여워서 재밌고, 또 그의 요리 퀄리티에 한 번 더 놀라게 된다. 나중에 나오는 박수와 호우 리액션이
+                                    별미.</p>
+                                <a href="https://www.youtube.com/watch?v=iMMtxGAPhiQ" class="btn btn-primary">추천영상 보러
                                     가기</a>
                             </div>
                         </div>
@@ -97,9 +116,32 @@
 
     </div>
 
+    <!-- Modal -->
+    <div class="myModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>Modal body text goes here.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary">Save changes</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+            $('#myModal').on('shown.bs.modal', function () {
+                $('#myInput').trigger('focus')
+            })
+        </script>
 </body>
 
 </html>
