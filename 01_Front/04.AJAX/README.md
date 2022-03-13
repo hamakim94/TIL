@@ -62,8 +62,8 @@
 - status ( 크게 5가지 : 100, 200, 300, 400, 500번대)
   - 서버 처리 결과 상태 코드
   - 200 (요청 성공)
-  - 404 (Not Found)
-  - 500 : Server Error
+  - 404 (Not Found) : 클라이언트 잘못
+  - 500 : Server Error : 서버 개발자 잘못
 - responseText
   - 서버의 응답 결과를 텍스트로
 - responsXML
