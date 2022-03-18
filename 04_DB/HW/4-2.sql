@@ -57,13 +57,13 @@ on m.CinemaCode = c.CinemaCode;
 SELECT m.ID, m.CinemaCode, m.Title, m.ReleaseDate, m.RunningTime, c.CinemaCode, c.CinemaName, c.Location
 FROM movie m INNER JOIN cinema c
 on m.cinemaCode = c.cinemaCode
-WHERE m.cinemaCode = 0;
+WHERE c.Location = '서울';
 
 -- 4. 광주에 있는 시네마에서 상영하는 영화의 수
 SELECT COUNT(DISTINCT Title) AS '상영 중', c.Location 
 FROM movie as m  INNER JOIN cinema as c
 ON m.cinemaCode = c.cinemaCode
-WHERE m.cinemaCode = 1;
+WHERE c.Location = '광주';
 
 -- 5. cinema 이름으로 그룹팡 하여 각 시네마마다 몇 개의 영화가 상영중인지 조회하시오
 
