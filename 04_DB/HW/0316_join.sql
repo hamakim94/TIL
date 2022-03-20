@@ -7,7 +7,7 @@ SELECT
     empno, ename, job
 FROM
     emp;
-movie
+
 -- 4개
 SELECT 
     deptno, dname
