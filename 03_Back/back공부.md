@@ -125,3 +125,161 @@
     1. Model : **data를 저장하거나, 필요한 형태로 가공**하는 역할을 수행한다.
     2. VIEW : **사용자에게 응답하기 위해서 화면을 작성**하는 역할을 수행한다.
     3. 컨트롤러 : 뷰와 모델 사이의 실행 흐름을 제어. 클라이언트로부터 요청을 받아 이를 분석하고, 어떤 비즈니스 로직을 수행할지 결정한다. 이후 로직의 결과를 보여주기 위한 뷰를 선택.
+
+---
+
+## 틀린문제
+
+### Servlet
+
+- 자바를 사용하여 웹 페이지를 동적으로 생성하는 서버 프로그램, 그 사양
+- 웹 서버의 성능 향상하기 위해 사용되는 자바 클래스의 일종
+- 웹 기반 응용 프로그램을 구축하기 위한 구성 요소 기반의 플랫폼 독립적 방법을 제공
+
+- **대화형 웹 응용 프로그램을 구축하는데 널리 사용**
+
+---
+
+- ~~~jsp
+  <% for(int i=0; i<3; i++){
+      out.print(i); 
+  } // 결과 :  이상하게 나옴
+  ~~~
+
+- **JSP 기본 객체 영역(Scope 메서드) -> 이게 그냥 page, request, session, application 말하는거였어!**
+
+  - **setAttribute, getAttributes, getAttributesNames, removeAttrivute(Stirng )**
+
+---
+
+- EL : jsp 영역 기본 객체(page, requeest, session, application ) 속성 사용 가능
+- 표현언어 기본 객체 : param, paramValues!
+
+~~~ jsp
+<%= ((com.ssafy.model.MemberDto) request.gettAttribute("userinfo")).getZipDto().getAddress()%>
+
+<%-- EL--%>
+${userinfo.zipDto.address}
+${sessionScope.student.id}
+~~~
+
+---
+
+### EL, JSTL 
+
+- EL 연산자
+  - 산술 : +, -, /(div), %(mod)
+  - 관계 : ==(eq), !=(nq), <(lt), >(gt), <=(le), >=(ge)
+  - 조건 : expr ? val1 : val2
+  - 논리 : and, or, not
+  - **null : empty**
+    - ${empty name}
+
+---
+
+### MVC Pattern
+
+개발 영역을 모델, 뷰, 컨트롤러
+
+- 모델 : 데이터를 저장하거나, 필요한 형태로 가공
+- View: 사용자에게 응답하기위해서 화면을 작성
+- 컨트롤러 : 뷰와 모델 사이의 실행 흐름을 제어하는 역할. 클라이언트로부터 요청을 받아 이를 분석하고 어떤 비즈니스 로직을 수행할지 결정. 이후 로직의 결과를 보여주기 위한 뷰를 선택한다.
+
+---
+
+### Cookies
+
+- 문자열 데이터
+
+- 동작 순서
+
+  - Client가 요청 생성
+  - WAS를 Cookie를 생성하고, Http Header에 Cookie를 넣어 응답
+  - Client(Browser)를 Cookie를 저장, 해당 서버에 요청할 때 요청과 함께 Cookie 전송
+  - Cookie는 브라우저가 종료되더라도 계속 저장, 만료 기간 전까지 동일 사이트 재방문 요청시 필요ㅔ 따라 Cookie가 재전송
+
+- 특징
+
+  - 이름(key) 값(value), 만료일(Expire date,), 경로 정보
+  - 클라이언트 최대 300개
+  - 하나의 돔에ㅣㄴ당 20개
+  - 쿠키 하나는 4KB까지 저장 가능
+
+- 사용법
+
+- ~~~java
+  Cookie cookie = new Cookie("userid", "ss");
+  response.addCookie(cookie); // response 안에 있는거야!
+  ~~~
+
+### Session
+
+- 특
+
+  - 사용자가 웹 서버의 젒속해 있는 상태를 하나의 단위 보고 세셔ㅛㄴ이라고 한다
+  - 각 세션은 sessionid를 이용해 구분한다
+  - WAS의 메모리에 객체 형태로 저장
+  - 메모리가 허용하는 용량까지 제한없이 저장
+  - 쿠키는 클라이언트에 저장 -> 보안 취약, 세션은 서버에 저장(보안에 좋다)
+  - 사용자 정보 및 장바구니 등록
+
+- 동작 순서
+
+  - 클라이언트가 페이지를 요청
+  - 서버는 쿠키에 sessionid가 있는지 확인
+  - session id가 존재하지 않으면 session id를 생성해 쿠키에 쓴 다음, 클라이언트로 반환
+  - 생성된 session id를 이용하여, 서버 내 메모리를 생성
+  - 클라이언트가 다음 요청 시 쿠키에 session id(JSESSIONID)를 포함해 전달하면 서버내에 저장된 session id와 비교하여 데이터를 조회
+
+- session 설정
+
+  - 브라우저 당 하나의 JSESSIONID를 할당받음
+  - 아이디 또는 닉네임과 같이 로그인했을 경우 자주 사용되는 정보를 session에 저장하면 db에 접근할 필요가 없으므로 효율적.
+
+- 사용법
+
+  - 요청 객체로부터 session 객체를 얻어오고
+  - session 데이터를 설정하여 저장
+
+  ~~~java
+  HttpSession session = requeset.getSession();
+  session.setAttribute("userid", "aa");
+  ~~~
+
+  - session에서 값을 반환하는 getAttribute 메서드는 반환형이 Object이다
+
+- ~~~java
+  String userid = (String) session.getAttribute("userid");
+  ~~~
+
+- 삭제 : session.invalidate();
+
+---
+
+### HTTP 에러
+
+404 : 서버는 요청받은 리소스를 찾을 수 없어
+
+405 : 요청한 메소드는 서버에서 알고있지만, 제거되었고 사용할 수 없습니다.
+
+​	Get method방식으로만 overriding 돼있는데 Post로 온 경우 405!
+
+500 : 컴퓨터에서 실수
+
+---
+
+${msg} : 아무것도 출력되지 않는다
+
+- sendredirect 에 있어서, 그냥 출력 자체가 안 된다.(없으면)
+
+**Q) 컨텍스트 루트 반환하는 함수 이름**
+
+request.getContextPath();
+
+---
+
+@Webservlet() : 주소에 대한 타이핑을 엄청많이해봐야한다.
+
+- (form action / ) : 포트번호 다음부터, 안 쓰면 내 마지막주소만 갈아끼울게
+- (많은 시행착오가 필요하다)
+
