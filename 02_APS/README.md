@@ -131,3 +131,16 @@ cf) 아스키 코드
 - 각 구간별 최댓값을 찾거나 하는 문제 : 거꾸로 생각하면, 해결되는 경우가 많다.
 - O(n^2) : 최대한 자제해야함.. 입력값을 보고 잘 판단해야해
 
+# 22/04/02
+
+### HashMap contains, Arraylis contains
+
+- ArrayList의 contains는 indexOf를 사용하기 때문에 O(n)이고
+- HashSet(map)의 contains 는 HashMap기반이고, O(1)이라고 한다
+
+---
+
+### Collections.sort(ans);
+
+- 자동으로 오름차순(사전순)으로 정렬, 기본값 String정렬
+- 만약 클래스에서 하려면 CompareTo나 Comparable 재정의(클래스 내부에서 )
