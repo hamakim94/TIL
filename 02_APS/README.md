@@ -144,3 +144,17 @@ cf) 아스키 코드
 
 - 자동으로 오름차순(사전순)으로 정렬, 기본값 String정렬
 - 만약 클래스에서 하려면 CompareTo나 Comparable 재정의(클래스 내부에서 )
+
+# 22/04/04
+
+### [], 배열 활용하기
+
+~~~ java
+List<Integer>[] list = new ArrayList[N+1];
+for(int i=0; i<list.size(); i++){
+    list[i] = new ArrayList<>();
+}
+~~~
+
+- []는 단순한 배열,  앞에 있는 건 담아놓을 자료형!
+- List<>라는 인터페이스로 자료형을 설정하면, 각 배열속에 들어가 인스턴스해야함!!
