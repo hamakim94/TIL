@@ -151,7 +151,7 @@ cf) 아스키 코드
 
 ~~~ java
 List<Integer>[] list = new ArrayList[N+1];
-for(int i=0; i<list.size(); i++){
+for(int i=0; i<list.length; i++){
     list[i] = new ArrayList<>();
 }
 ~~~
