@@ -433,6 +433,14 @@ public List<Member> selectAll();
 - 아까는 마바설정에서 Database연결정보를 했지만, 이것은 스프링으로 이관된다.
 - 위에 있는 DataSource에다가+타입알리아스+매퍼 정보만 있으면 SqlSessionFactory를 만들 수 있음
 
+
+
+- mvn 준비물
+  - mybatis - spring
+  - mysql-connector
+  - jdbc
+  - mybatis
+
 ---
 
 ### MyBatis와 스프링 연동 
@@ -489,4 +497,6 @@ root-context.xml // jdbc 연결
   - 쓰레드안전한 SqlSession객체를 만들어 준다. 이놈을 주입받아서 사용해도 좋다.
 - 연동방법 3
   - 매퍼 주입
+
+cf) try-with resources
 
