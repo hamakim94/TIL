@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <button>게시물 목록 호출</button>
+    </div>
+    <script>
+        document.querySelector("button").addEventListener(
+            'click', function(){
+                const xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function(){
+                    if(xhr.readyState == 4){
+                        if(xhr.status == 200){
+                            console.log(xhr.response);
+                        }
+                    }
+                };
+                xhr.open('GET', 'http://localhost:8080/api/board?pageNo=1');
+                xhr.send();
+                alert(1);
+        });
+    </script>
+</body>
+</html>
