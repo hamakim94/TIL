@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <title>Hello Vue</title>
+</head>
+<body>
+    <div id="app">
+        <div>
+            <h2> 범위는 4</h2>
+            <span v-for="i in 4">{{i}}</span>
+        </div>
+
+        <div>
+            <h2>문자열배열</h2>
+            <ul>
+                <li v-for="name in names">{{name}}</li>
+            </ul>
+        </div>
+
+        <div>
+            <h2>문자열배열2</h2>
+            <ul>
+                <li v-for="(index, name) in names">
+                    {{ index + 1 }} : {{name}}
+                </li>
+            </ul>
+        </div>
+    </div>  
+
+    <script>
+        const app = new Vue({
+            el : "#app",
+            data(){ 
+                return{
+                    names : ['a','b','f','d','k']
+                }
+            }
+        })
+    </script>
+</body>
+</html>
