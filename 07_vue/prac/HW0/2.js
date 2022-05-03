@@ -1,3 +1,4 @@
+// 1. Template Literal
 let name = "Kim";
 let birthday = "2000.01.01";
 let job = "Student";
@@ -5,6 +6,7 @@ let job = "Student";
 let info = `내 이름은 ${name}이고 ${birthday}에 태어 났습니다. 제 직업은 ${job}입니다`
 console.log(info)
 
+// 2. Object Destructuring assignment
 let Movie = {
     title : "기생충",
     director : "봉준호",
@@ -12,7 +14,8 @@ let Movie = {
     runningTime : 132
 }
 // key값이랑 변수명이랑 이름 같아야지 됨, 다르더니 안 되더라..
-let {title,director,genre,runningTime} = Movie;
+// 순서는 중요하지 않다, 알아서 넣어준다.
+let {tite,genre,director,runningTime} = Movie;
 console.log(title);
 console.log(director);
 console.log(genre);
@@ -28,7 +31,7 @@ function triple(a) {
     return a**3;
 }
 
-let ans = a => a**3;
+let ans = a => a**3; // 함수처럼 된다?
 console.log(ans(3))
 
 // Arrays Helper Methods중 map을 메서드를 사용하여 
