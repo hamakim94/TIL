@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <title>Vue Component 통신</title>
+</head>
+<body>
+    <div id="app"> 
+        <child-comp v-for="(area, index) in areas" :key = "index" :area="area"  :msg = "msg[parseInt(Math.random()*3)]"></child-comp>
+    </div>   
+
+    <template id="ChildComp">
+        <div>
+            <h2>hamakim {{area}}에서 {{msg}} </h2>
+        </div>
+    </template>
+
+    <script>
+        Vue.component('ChildComp', {
+            template : '#ChildComp',
+            props : {
+                'area' : String,
+                'msg' : {
+                    type : String,
+                    required : true,
+                }
+            }
+        });
+
+        new Vue({
+            el:'#app',
+            data : {
+                areas : ['서울', '광주', '뒷간'],
+                msg : ['끼에엑', '대단해요', '곤란'],
+            }
+        })
+
+    </script>
+</body>
+</html>

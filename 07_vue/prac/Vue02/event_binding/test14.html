@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Method</title>
+    <style type="text/css">
+        .completed{
+            text-decoration: line-through;
+            font-style: italic;
+        }
+
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div>
+        아이디 : <input v-model="id" placeholder="아이디 입력">
+        </div>
+        <div>
+            메시지:
+            <textarea v-model.lazy="message" placeholder="내용입력" cols="30"></textarea>
+        </div>
+        <div>
+            {{ id }} 님에게 보내는 메시지 {{message}}
+        </div>
+    </div>
+
+    
+    <script>
+       new Vue({
+            el : '#app',
+            data() {
+                return{
+                    id : "",
+                    message : "",
+                }
+               
+            },
+            methods:{
+            },
+        })
+    </script>
+
+</body>
+</html>

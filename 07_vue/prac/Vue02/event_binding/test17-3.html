@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Form checkbox</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p>님 수업 어디서 들어</p>
+        <select v-model="selectArea">
+            <option v-for="area in areas" :value="area.value">
+                {{area.name}}
+            </option>
+        </select>
+        <div>
+            선택한 지역은 : {{selectArea}}
+        </div>
+    </div>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                selectArea: '',
+                areas: [
+                    { name : '서울', value : 'seoul'},
+                    { name : '대전', value :'daejeon' },
+                    { name : '대구', value :'dagu' },
+                    { name : '부산', value :'busan' },
+                    { name : '찍고', value : 'pickck'},
+                ]
+            },
+            created(){
+                this.selectArea ='서울'
+            }
+        })
+    </script>
+</body>
+
+</html>

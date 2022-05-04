@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Form checkbox</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div>
+            당신이 끼에엑?을 선택하시오
+        </div>
+        <input type="radio" id="gwangju" value="광주" v-model="area">
+        <label for="gwangju">광주</label>
+        <input type="radio" id="gumi" value="구미" v-model="area">
+        <label for="gumi">구미</label>
+        <input type="radio" id="daejeon" value="대전" v-model="area">
+        <label for="daejeon">대전</label>
+        <input type="radio" id="seoul" value="서울" v-model="area">
+        <label for="seoul">서울</label>
+        <input type="radio" id="buk" value="부울경" v-model="area">
+        <label for="buk">부울경</label>
+        <br>
+        <span> 끼에에엑: {{ area }}</span>
+    </div>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                area: "서울"
+            }
+        })
+    </script>
+</body>
+
+</html>

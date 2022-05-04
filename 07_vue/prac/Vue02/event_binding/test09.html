@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <title>Vue Method</title>
+</head>
+<body>
+    <div id="app">
+        <div>
+            <h2>페이지 이동</h2>
+            <a href="test08.html" @click="sendMsg1">페이지 이동 막기1</a><br>
+            <a href="test08.html" @click="sendMsg2">페이지 이동 막기2</a><br>
+            <a href="test08.html" @click.prevent="sendMsg1">페이지 이동 막기1</a><br>
+        </div>
+        
+    
+    </div>
+
+    
+    <script>
+       new Vue({
+            el : '#app',
+            methods:{
+                sendMsg1(){
+                    alert('이동막기')
+                },
+
+                sendMsg2(event){
+                    event.preventDefault()
+                    alert('이동막기')
+                },
+                
+            }
+           
+            // 지역변수
+                
+        })
+    </script>
+
+</body>
+</html>

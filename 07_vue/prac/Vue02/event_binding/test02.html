@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <title>Vue Method</title>
+</head>
+<body>
+    <div id="app">
+        <button @click="greet">인사</button>
+    </div>
+
+    <script>
+        new Vue({
+            el : '#app',
+            data () {
+                return {
+                    msg : '안녕하세용',
+                    name : 'hama'
+                }
+            },
+            methods :{
+                greet(){
+                    // 메서드 안에서 사용하는 this는 Vue 인스턴스
+                    alert(`${this.msg} ${this.name} !` )
+                }
+            }
+          
+
+        })
+    </script>
+
+</body>
+</html>

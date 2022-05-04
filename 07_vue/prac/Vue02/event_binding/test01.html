@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <div>{{ count }} </div>
+        <button @click="count++">클릭</button>
+    </div>
+    <div>
+        {{ count }}
+    </div> 
+
+    <script>
+        new Vue({
+            el : '#app',
+            data () {
+                return {
+                    count : 1
+                }
+            },
+            // 생성되기 전이니까, 여기 마운트도 안 됐어
+            beforeCreate(){
+                console.log('beforeCreate count ' + this.count)
+            },
+            // 만들어 졌으니까. cont 접근 가능
+            created(){
+                console.log('Created count : ' + this.count)
+                console.log('created에 연결된 DOM : ' + this.$el)
+            },
+
+            beforeMount() {
+                console.log('beforeMount count : ' + this.count)
+                console.log('beforeMount에 연결된 DOM : ' + this.$el)
+            },
+            mounted() {
+                console.log('mounted count : ' + this.count)
+                console.log('mounted 연결된 DOM : ' + this.$el)
+            },
+
+            beforeUpdate(){
+                console.log('beforeUpdate 호출')
+            },
+
+            updated(){
+                console.log('updated 호출')
+                console.log('updated count : ' + this.count)
+            },
+
+        })
+    </script>
+
+</body>
+</html>

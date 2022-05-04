@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <title>Vue Component 통신</title>
+</head>
+<body>
+    <div id="app"> 
+        <h2>props test</h2>
+        <child-component propsdata="정적인 메시지"></child-component>
+
+        <!-- 동적 props -->
+        <input type="text" v-model="msg">
+        <child-component :propsdata="msg"></child-component>
+    </div>   
+    
+
+    <script>
+        Vue.component('ChildComponent', {
+            template: '<div>{{ propsdata }}</div>',
+            props : [
+                'propsdata'
+            ]
+        })
+
+        new Vue({
+            el:'#app',
+            data(){
+                return{
+                    msg: ''
+                }
+            }
+        })
+
+        
+
+        
+
+    </script>
+</body>
+</html>
