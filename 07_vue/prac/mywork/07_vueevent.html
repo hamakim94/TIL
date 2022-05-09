@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Event</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- <button @click="greet('hi')">인사하기</button> -->
+        <button @click="greet($event, 'hi')">인사하기</button>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            methods: {
+                // greet(msg){
+                //     alert(`Hello ${msg}!`)
+                //     console.log(event)
+                // }
+                greet(e, msg){
+                    alert(`Hello ${msg}!`)
+                    console.log(e)
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

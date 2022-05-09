@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>계산기</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script> 
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model.number="num1">
+        <select v-model="op">
+            <option value="+">+</option>
+            <option value="-">-</option>
+
+        </select>
+        <input type="text" v-model.number="num2">
+        <button @click="doCal">입력</button>
+        <div>{{result}}</div>
+    </div>
+
+
+    <script type="module" src="./test01.js">
+
+
+    </script>
+
+</body>
+</html>

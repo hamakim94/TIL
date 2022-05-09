@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="msg">
+        <h3>{{ msg | count1 }}</h3>
+        <h3>{{ msg | count2('암것도없잖아!') | count3 }}</h3>
+
+    </div>
+    
+    <script>
+        // 전역 필터
+        Vue.filter(
+            'count1', (val) => {
+                if(val.length == 0){
+                    return;
+                }
+                return `${val} : ${val.length}자`;
+            }
+        )
+
+        new Vue({
+            el : '#app',
+            data (){
+                return{
+                    msg : ''
+                }
+            },
+            filters : {
+                count2(val, alternative){
+                    if(val.length == 0){
+                        return alternative;
+                    }
+                    return `${val} : ${val.length}`;
+                },
+                count3(val){
+                    return `${val} 글자`;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

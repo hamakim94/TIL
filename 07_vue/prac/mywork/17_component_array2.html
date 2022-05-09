@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    
+</head>
+<body>
+
+    <div id="app">
+        <child-comp v-for="a in area" :area="a" :msg="msg[parseInt(Math.random()*5)]"></child-comp>
+    </div>
+
+    
+    <template id = "ChildComp">
+        <div>
+            <h2> 나는 {{area}} 에 살고 {{msg}} </h2>
+        </div>
+    </template>
+
+
+    <script>
+        Vue.component('ChildComp', {
+            template : '#ChildComp',
+            props :{
+                'area' : String,
+                 'msg' {
+                     type : String,
+                     required : true,
+                 }
+                }
+        })
+
+        new Vue({
+            el : '#app',
+            data (){
+                return{
+                    msg : ['끼', '대', '곤', '깜', '귀'],
+                    area : ['서울', '대전', '광주', '구미', '부울경'],
+                }
+            }
+        })
+    </script>
+
+
+
+</body>
+</html>

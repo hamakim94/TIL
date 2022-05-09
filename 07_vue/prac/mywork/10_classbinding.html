@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Event</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        .active{
+            background: black;
+            color: white;
+        }
+
+        div{
+            width:200px;
+            height: 200px;
+            border: 1px solid #444;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div :class="{active : isActive}">vue css</div>
+        <button @click="toggle">토글토글</button>
+    </div>
+    <script>
+        new Vue({
+            el : '#app',
+            data (){
+                return{
+                    myclass : {active : true},
+                    isActive : false,
+                }
+            },
+            methods:{
+                toggle(){
+                    this.isActive = !this.isActive
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

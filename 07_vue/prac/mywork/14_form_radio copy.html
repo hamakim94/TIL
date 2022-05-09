@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<!-- 체크박스는 배열로 받을 수 있다는 사실! -->
+<body>
+    <div id="app">
+        <div>
+            당신이 가고 싶은 지역은
+        </div>
+            
+        <input type="radio" value="광주" v-model="area" id="gwangju">
+        <label for="gwangju"> 광주</label>
+        <input type="radio" value="푸산" v-model="area" id="pusan">
+        <label for="pusan"> 부산</label>
+        <input type="radio" value="대전" v-model="area" id="dae">
+        <label for="dae"> 대전</label>
+        <input type="radio" value="서울 "v-model="area" id="se">
+        <label for="se"> 서울</label> <br>
+        <span> {{ area }} </span>
+                
+        
+    </div>
+    
+    <script>
+     
+
+        new Vue({
+            el : '#app',
+            data :{
+                area : "서울",
+            }
+                    
+                
+        })
+    </script>
+</body>
+</html>
