@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <title>연습5</title>
+
+</head>
+
+<body>
+    <div id="app">{{ msg | filter('값 없음') }}</div>
+
+    <script>
+        Vue.filter(
+            'filter', (val, data) => {
+								if(val.length == 0) {
+										return data;
+								}
+								else {
+										return `${val} , 길이는 : ${val.length}`
+								}
+            }
+        )
+				
+        new Vue({
+            el:"#app",
+            data() {
+                return{
+                    msg : '',
+                }
+            },
+        })
+    </script>
+</html>
