@@ -252,3 +252,10 @@ for(int i=0; i<list.length; i++){
 ### 2. 굳이 ArrayList.sort(new comparater) 안 해도 돼
 - 그냥 for문 2번 돌려서, 가장 작은 값 찾고, 그 중에서 최소값 구하는 공식 또 구하면 돼
 
+---
+
+# 22.06.23
+
+## BFS 실수
+
+- 시작과 끝 점이 같은 경우... 무적권 edge case에 대한 생각(2시간 out)
