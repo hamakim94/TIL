@@ -64,3 +64,19 @@ useEffect(() => {
 - 첫 실행 때 딱 막아줌
 - [boards], 즉 우리가 state에 선언한 변수를 useEffect 함수 인자로 넣어 등록을 해줘
 - 냄새가 진한편
+
+## 객체 여러 값 동시에 수정
+
+onPress={() ⇒[ set함수1, set함수2]}| , ⇒ 뒤에 것만 적용이 되는 문제가 있다.
+
+set함수 자체를 prev값 갖게 함수형으로 하거나,
+
+아래처럼 ,를 활용해 붙일 수 있다. 
+
+```jsx
+const setOpt2Selected = () => {
+    setBoards(boards.map(item => item.board_id === board.board_id
+      ? {...item, opt2_selected: item.opt2_selected + 1, user_vote : 2} 
+      : item))           
+  };
+```
