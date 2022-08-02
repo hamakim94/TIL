@@ -1,6 +1,6 @@
 # 220729 git
 
-git log —oneline —branch
+git log --oneline --graph
 
 - 현재 보여줌
 
