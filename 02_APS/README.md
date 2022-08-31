@@ -259,3 +259,33 @@ for(int i=0; i<list.length; i++){
 ## BFS 실수
 
 - 시작과 끝 점이 같은 경우... 무적권 edge case에 대한 생각(2시간 out)
+
+---
+
+# 22.08.31
+
+### Strings.replace( str1, str2)
+
+~~~ java
+String str = "abccccddabcdf";
+System.out.println(str.replace("abc", "z")); //zcccddzdf
+~~~
+
+문자열에서 매칭되면, 바꿔주는 함수
+
+만약 특정 문자열을 숫자로 바꿔야 한다면..
+
+~~~ java
+String[] nums = {"zero", "one", ..., "nine"} // 0부터 9까지 매칭
+string input = "one3threezero";
+for(int i=0; i<10; i++){
+    input = input.replace(nums[i], Integer.toString(i));
+}
+~~~
+
+- 중간중간 결과를 저장하기!
+
+### String.replaceAll(String regex, String replacement)
+
+- 정규표현식을 쓴다.
+- regex 자체에 문자가 들어가도 ok야!
