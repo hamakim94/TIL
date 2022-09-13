@@ -332,4 +332,21 @@ for(int i=0; i<10; i++){
 
     - 안 나눠지면 나눠지는 수가 없다는 뜻!
 
-      
+
+# 22.09.13 PGS 자연수뒤집어만들기
+
+- int, long자리수 구하기
+
+  - Integer.toString(a).length();
+  - Long.toString(a).length(); 등
+
+- 숫자를 문자로
+
+  - String.valueOf(a)
+
+    
+
+## (int) (n%10)  (int) n%10 
+
+명백히.다르다. n%10 한걸 int로 만드드냐, 아니면 n을 int로 하고 10르노 나눈 나머지를 적용하느냐
+
