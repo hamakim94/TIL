@@ -421,3 +421,18 @@ String에서 특정 문자 제거 : replaceAll .. 또 기억하자
      - String.format("%" + 자릿수 + " s", str);
 
    - String 보면 습관적으로 for문 돌기 보다 replaceAll을 사용하자
+
+## 10.12 Greedy : 구명보트
+
+- 특정한 무게(한계)가 주어졌을 때, 최솟값 구하기
+
+-      // 최솟값 구하기
+              // 무게 제한 있을 때;
+              // minIdx, maxIdx를 두고,
+              // 해당 합이 기준보다 작으면, answer++
+              // minIdx++ maxIdx --
+              // 만약 해당 합이 100보다 크면,
+              // answer++
+              // minIdx 그대로
+
+- 늘 이런식으로 생각하자.
