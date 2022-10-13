@@ -436,3 +436,16 @@ String에서 특정 문자 제거 : replaceAll .. 또 기억하자
               // minIdx 그대로
 
 - 늘 이런식으로 생각하자.
+
+## 10.14 HashSet -> ArrayList
+
+- set을 만들고
+- ArrayList<Integer> arr = new ArrayList<>(set);
+  - ArrayList sort -> Collections.sort(arr, (a,b) -> {})
+  - Array sort -> Arrays.sort(arr, (a,b) -< {})
+
+- ArrayList 자체적으로 contains 있음
+- 다음엔 이클립스 써서 풀자..
+
+​	
+
