@@ -494,3 +494,22 @@ String에서 특정 문자 제거 : replaceAll .. 또 기억하자
 
 - 최단 거리는 BFS이다.
 - 만약 BFS에서 탐욕적(최소 거리부터)으로 하고싶으면 PQ를 이용해서 내가 원하는 조건이 낮은걸로 자동적으로 정렬~
+
+## 12.05 문자열(정규표현식)
+
+### 문자열
+
+- String.format("%s, %s", args) : 이렇게 넣는거 익숙해져야해
+- 문자열 안에 특수문자 기준으로 split : \\\ 사용!
+
+### 정규표현식
+
+- . : 임의의 한 문자
+- \* :없음 또는 한 개 이상
+- Pattern class, matches 이용할 수 있다
+
+~~~ java
+Pattern pattern = Pattern.compile("regex");
+boolean ans = pattern.matcher("문자열".matches());
+~~~
+
