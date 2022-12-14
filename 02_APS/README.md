@@ -513,3 +513,8 @@ Pattern pattern = Pattern.compile("regex");
 boolean ans = pattern.matcher("문자열".matches());
 ~~~
 
+## 12.14 반복문
+
+- 인덱스 습관적으로 N으로 생각하지 말기
+- 각 인덱스마다 i 쓰지 말고 의미 생각하자 이제!
+
