@@ -518,3 +518,16 @@ boolean ans = pattern.matcher("문자열".matches());
 - 인덱스 습관적으로 N으로 생각하지 말기
 - 각 인덱스마다 i 쓰지 말고 의미 생각하자 이제!
 
+## 12.16 소숫점
+
+1. printf 사용
+   - System.out.printf("%.6f\n", n\*n*Math.PI);
+2. String.format사용
+   1. System.out.println(String.format("%.6f", n\*n*Math.PI));
+
+- 출력(format)
+  - %d : 정수
+  - %s : 문자열
+  - %c : 문자
+  - %f : 실수, 부동 소숫점 형식으로 출력 %.(원하는 자릿수)f
+  - 기타 등등!
