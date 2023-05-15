@@ -34,4 +34,15 @@ public class ConfigurationSingletonTest {
 
 
     }
+    
+    @Test
+    void configurationDeep() {
+        ApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
+        AppConfig bean = ac.getBean(AppConfig.class);
+
+        System.out.println("bean = " + bean); // 단순 뽑으면 hello.core.AppConfig$$EnhancerBySpringCGLIB$$5bbd9900@5066d65f 이렇게 옴
+        // 순수 클래스라면 class hello.core.AppConfig로 나와야
+
+
+    }
 }

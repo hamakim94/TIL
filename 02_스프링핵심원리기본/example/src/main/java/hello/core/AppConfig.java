@@ -11,7 +11,7 @@ import hello.core.order.OrderServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration
+@Configuration // 이거, 골뱅이 없어지면 싱글턴 보장 XX
 public class AppConfig {
 
     //@Bean memberService -> new MemoryMemberRepository
