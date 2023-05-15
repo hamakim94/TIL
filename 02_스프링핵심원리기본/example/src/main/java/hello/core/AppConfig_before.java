@@ -21,8 +21,8 @@ public class AppConfig_before {
     }
 
     public OrderService orderService() {
-//        return new OrderServiceImpl(memberRepository(), discountPolicy());
-        return null;
+        return new OrderServiceImpl(memberRepository(), discountPolicy());
+//        return null;
     }
 
     public DiscountPolicy discountPolicy() {

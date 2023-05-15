@@ -14,9 +14,9 @@ import org.springframework.context.annotation.FilterType;
 )
 public class AutoAppConfig {
 
-
+    /*
     @Bean(name = "memoryMemberRepository") // 증복을 위해 이렇게 설정
     MemberRepository memberRepository() {
         return new MemoryMemberRepository();
-    }
+    }*/
 }
