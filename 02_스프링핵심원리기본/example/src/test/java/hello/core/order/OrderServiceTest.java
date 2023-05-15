@@ -1,9 +1,11 @@
 package hello.core.order;
 
 import hello.core.AppConfig_before;
+import hello.core.discount.FixDiscountPolicy;
 import hello.core.member.Grade;
 import hello.core.member.Member;
 import hello.core.member.MemberService;
+import hello.core.member.MemoryMemberRepository;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -31,6 +33,16 @@ public class OrderServiceTest {
         Assertions.assertThat(order.getDiscountPrice()).isEqualTo(1000);
 
 
+    }
+
+    @Test
+    void fieldInjectionText() {
+//        OrderServiceImpl orderService= new OrderServiceImpl();
+        // 필드로 주입하면 , 생성자를 또 만들어서.. 난리가 나네.. 차라리 setter를 Autowired를 하는게 낫네
+//        orderService.setMemberRepository(new MemoryMemberRepository());
+//        orderService.setDiscountPolicy(new FixDiscountPolicy());
+
+//        orderService.createOrder(1L, "itemA", 10000);
     }
 
 }
