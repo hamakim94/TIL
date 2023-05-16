@@ -19,8 +19,9 @@ public class BeanLifeCycleTest {
 
     @Configuration
     static class LifeCycleConfig {
-
-        @Bean
+        // 외부에서 사용하는 서비스를 Bean으로 등록했는데, 끝내고 싶지 않으면 distoryMethod = "")
+        // 공백으로 지정해주면 된다. 왜냐면 Bean 자체에서 destroyMethod는 추론하기 떄문이다.
+        @Bean(initMethod = "init", destroyMethod = "close")
         public NetworkClient networkClient() {
             NetworkClient networkClient = new NetworkClient();
             networkClient.setUrl("http://hello-spring.dev");
