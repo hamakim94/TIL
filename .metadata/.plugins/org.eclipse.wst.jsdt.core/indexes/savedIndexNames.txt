@@ -1,0 +1,2 @@
+INDEX VERSION 1.4+/Users/mingyun/Desktop/Spring/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+450656096.index
