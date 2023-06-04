@@ -1,9 +1,6 @@
 package jpabook.jpashop.domain;
 
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -13,6 +10,7 @@ import java.util.List;
 @Entity
 @Table(name = "orders") // DB에서는 테이블 명이 order 면 ORDER BY 등이랑 헷갈려서 이렇게 쓴다
 @Getter @Setter
+@ToString
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Order {
     @Id
