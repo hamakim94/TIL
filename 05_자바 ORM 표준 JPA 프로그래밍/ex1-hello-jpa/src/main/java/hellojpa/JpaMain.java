@@ -18,20 +18,15 @@ public class JpaMain {
         tx.begin();
 
         try {
-            Member member = new Member();
+            //영속
+            Member member = em.find(Member.class, 150L);
+            member.setName("AAAAA");
 
-//            member.setId(1L);
-//            member.setName("HelloA");
-//            em.persist(member);
-
-            List<Member> resultList = em.createQuery("select m from Member as m", Member.class).getResultList();
-
-            for (Member member1 : resultList) {
-                System.out.println("member1.getName() = " + member1.getName());
-            }
+            em.detach(member);
 
 
-            tx.commit();
+            System.out.println("===========");
+            tx.commit(); // 이 시점에서 insert가 일어나는 거 같아
         } catch (Exception e) {
             tx.rollback();
         } finally {

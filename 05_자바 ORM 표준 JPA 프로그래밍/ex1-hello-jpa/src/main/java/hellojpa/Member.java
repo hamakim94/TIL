@@ -12,6 +12,14 @@ public class Member {
 //    @Column(name = "user_name") // 만약 컬럼 명이 다른 경우
     private String name;
 
+    public Member(long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public Member() {
+    }
+
     public long getId() {
         return id;
     }
