@@ -23,6 +23,12 @@ public class Order {
         return member;
     }
 
+    @OneToOne
+    @JoinColumn(name = "DELIVERY_ID")
+    private Delivery delivery;
+
+
+
     public void setMember(Member member) {
         this.member = member;
     }
