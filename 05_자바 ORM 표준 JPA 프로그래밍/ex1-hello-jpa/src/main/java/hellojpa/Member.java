@@ -2,7 +2,7 @@ package hellojpa;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.Date;
+import java.util.*;
 
 @Entity
 //@Table(name = "USER") // 만약 테이블 명이 USER인 경우(DB)
@@ -24,6 +24,23 @@ public class Member {
     // 주소
     @Embedded
     private Address homeAddress;
+
+    @ElementCollection
+    @CollectionTable(name="FAVORITE_FOOD", joinColumns =
+        @JoinColumn(name = "MEMBER_ID")
+    ) // 테이블명
+    @Column(name = "FOOD_NAME")
+    private Set<String> favoriteFoods = new HashSet<>();
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "MEMBER_ID")
+    private List<AddressEntity> addressHistory = new ArrayList<>();
+
+//    @ElementCollection
+//    @CollectionTable(name="ADDRESS", joinColumns =
+//        @JoinColumn(name = "MEMBER_ID")
+//    ) // 테이블명
+//    private List<Address> addressHistory = new ArrayList<>();
 
     public Period getWorkPeriod() {
         return workPeriod;
@@ -68,5 +85,21 @@ public class Member {
 
     public void setTeam(Team team) {
         this.team = team;
+    }
+
+    public Set<String> getFavoriteFoods() {
+        return favoriteFoods;
+    }
+
+    public void setFavoriteFoods(Set<String> favoriteFoods) {
+        this.favoriteFoods = favoriteFoods;
+    }
+
+    public List<AddressEntity> getAddressHistory() {
+        return addressHistory;
+    }
+
+    public void setAddressHistory(List<AddressEntity> addressHistory) {
+        this.addressHistory = addressHistory;
     }
 }
