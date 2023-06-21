@@ -2,6 +2,7 @@ package jpabook.jpashop;
 
 import com.sun.org.apache.xpath.internal.operations.Or;
 import jpabook.jpashop.domain.Book;
+import jpabook.jpashop.domain.Member;
 import jpabook.jpashop.domain.Order;
 
 import javax.persistence.EntityManager;
@@ -22,10 +23,7 @@ public class JpaMain {
 
         try {
 
-            Book book = new Book();
-            book.setName("JPA");
-            book.setAuthor("김");
-            em.persist(book);
+            Member member = new Member();
 
             tx.commit(); // 이 시점에서 insert가 일어나는 거 같아
         } catch (Exception e) {

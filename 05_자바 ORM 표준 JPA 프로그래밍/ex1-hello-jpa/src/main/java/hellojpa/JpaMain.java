@@ -18,21 +18,15 @@ public class JpaMain {
         tx.begin();
 
         try {
-            Child child1 = new Child();
-            Child child2 = new Child();
+            Address address = new Address("city", "street", "100000");
 
-            Parent parent = new Parent();
-            parent.addChild(child1);
-            parent.addChild(child2);
+            Member member1 = new Member();
+            member1.setUsername("aaa");
+            member1.setHomeAddress(address);
+            em.persist(member1);
 
-            em.persist(parent);
-
-            em.flush();
-            em.clear();
-
-            Parent findParent = em.find(Parent.class, parent.getId());
-            findParent.getChildList().remove(0); // 알아서 지워질듯
-
+            Address newAddress = new Address("newCity", address.getCity(), address.getZipcode());
+            member1.setHomeAddress(newAddress);
 
             tx.commit(); // 이 시점에서 insert가 일어나는 거 같아
         } catch (Exception e) {

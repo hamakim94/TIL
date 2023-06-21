@@ -2,6 +2,7 @@ package hellojpa;
 
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 public class Child {
@@ -38,5 +39,39 @@ public class Child {
 
     public void setParent(Parent parent) {
         this.parent = parent;
+    }
+
+    @Embeddable
+    public static class Address {
+
+        private String city;
+        private String street;
+        private String zipcode;
+
+        public Address() {
+        }
+
+        public Address(String city, String street, String zipcode) {
+            this.city = city;
+            this.street = street;
+            this.zipcode = zipcode;
+        }
+
+    }
+
+    @Embeddable
+    public static class Period {
+
+        LocalDateTime startDate;
+        LocalDateTime endDate;
+
+        public Period() {
+        }
+
+        public Period(LocalDateTime startDate, LocalDateTime endDate) {
+            this.startDate = startDate;
+            this.endDate = endDate;
+        }
+
     }
 }
