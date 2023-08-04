@@ -628,3 +628,15 @@ boolean ans = pattern.matcher("문자열".matches());
 
 아직 지문이 길면 겁을 먹는다. 화이팅
 
+
+
+## 23.08.04
+
+- br.readLine() ( L 대문자)
+
+``` java
+PriorityQueue<Integer>[] pq = new PriorityQueue[size];
+for(int i=0; i<size; i++){
+  pq[i] = new PriorityQueue<Integer>((a,b) -> b - a);
+}
+```
