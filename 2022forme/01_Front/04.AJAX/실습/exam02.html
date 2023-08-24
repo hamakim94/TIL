@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h1>JSON 파일을 읽어 멤버를 호출해보자</h1>
+    <textarea id = "student" cols="30" rows="10"></textarea>
+    <input type="button" value="출석" onclick="requestMsg()" >
+
+    <script>
+        let xhr;
+        let studentArea = document.getElementById("student");
+
+        function requestMsg(){
+            xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = callbackFunc;
+            xhr.open("GET", "./data/member.json");
+            xhr.send(null);
+
+        }
+        function callbackFunc(){
+            if(xhr.readyState == 4){
+                if(xhr.status == 200){
+                    console.log(xhr.response)
+                }
+            }
+        }
+    </script>
+</body>
+</html>

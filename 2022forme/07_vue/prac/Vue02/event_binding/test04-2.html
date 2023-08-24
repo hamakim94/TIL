@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <title>Vue Method</title>
+</head>
+<body>
+    <div id="app">
+        <div>
+            <input type="text" v-model="message">
+            <p>원본 메세지 : "{{message}}"</p>
+            <p>역순으로 표시한 메시지1 : "{{reversedMsg()}}</p>
+            <p>역순으로 표시한 메시지2 : "{{reversedMsg()}}</p>
+            <p>역순으로 표시한 메시지3 : "{{reversedMsg()}}</p>
+
+        </div>
+        
+    
+    </div>
+
+    
+    <script>
+        new Vue({
+            el : '#app',
+            data () {
+                return {
+                    message : "안녕하세요 미나상",
+                }
+            },
+            methods: {
+                reversedMsg : function(){
+                    console.log('거꾸로 찍기')
+                    return this.message.split('').reverse().join('')
+                }
+            }
+            // 지역변수
+                
+        })
+    </script>
+
+</body>
+</html>

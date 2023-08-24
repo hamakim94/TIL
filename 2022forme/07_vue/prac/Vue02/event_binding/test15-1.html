@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Method</title>
+    <style type="text/css">
+        .completed{
+            text-decoration: line-through;
+            font-style: italic;
+        }
+
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div>
+            <p>이메일 수신
+                <input type="checkbox" v-model="email" id="ema">
+                <label for="ema">{{email}}</label>
+            </p>
+            <p> 
+                SMS 수신
+                <input type="checkbox" v-model="sms" id="sms" true-value = "Y" false-value ="N">
+                <label for = "sms">{{sms}}</label>
+            </p>
+        </div>
+    </div>
+
+    
+    <script>
+       new Vue({
+            el : '#app',
+            data() {
+                return{
+                    email : false,
+                    sms : "Y",
+
+                }
+               
+            },
+            methods:{
+            },
+        })
+    </script>
+
+</body>
+</html>

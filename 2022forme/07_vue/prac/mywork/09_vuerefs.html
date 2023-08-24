@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Event</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h2>엘리먼트 참조</h2>
+        아이디 : <input type="text" v-model="id" ref="id">
+        <button @click.13="search">아이디 중복 체크</button>
+    </div>
+    <script>
+        new Vue({
+            el : '#app',
+            data(){
+                return{
+                    id : '',
+                }
+            },
+            methods : {
+                search(){
+                    if( this.id.length == 0){
+                        alert("앙 입력해!")
+                        this.$refs.id.focus()
+                        console.log(this.$refs.id)
+                        return
+                    } 
+                    alert("굳")
+                    
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

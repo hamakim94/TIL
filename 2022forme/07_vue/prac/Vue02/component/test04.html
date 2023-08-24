@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <title>Vue Component</title>
+</head>
+<body>
+    <div id="app">
+        <h2>컴포넌트간 데이터 공유 문제</h2>
+        
+        <count-view></count-view>
+        <count-view></count-view>
+        <count-view></count-view>
+
+    </div>   
+    
+    <template id="CountView">
+        <div>
+            <span>{{ count }} </span>
+            <button @click="count++">클릭</button>
+        </div>    
+    </template>
+
+    <script>
+        let num = {
+            count : 0
+        }
+
+        Vue.component('CountView', {
+            data() {
+                return {
+                    count : 0,
+                }
+            },
+            template : '#CountView'
+        })
+
+        new Vue({
+            el:'#app'
+        })
+
+        
+
+        
+
+    </script>
+</body>
+</html>

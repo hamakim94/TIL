@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.hamakim94.board.model.dao.BoardDao">
+  	<resultMap type="board" id="boardMap">
+  		<id column="id" property="id"/>
+  		<result column="writer" property="writer"/>
+  		<result column="title" property="title"/>
+  		<result column="content" property="content"/>
+  		<result column="view_cnt" property="viewCnt"/>
+  		<result column="reg_date" property="regDate"/>
+  		<result column="file_name" property="fileName"/>
+  		<result column="file_uri" property="fileUri"/>
+  	</resultMap>
+  	
+  	<insert id="insertBoard" parameterType="board">
+  		INSERT INTO board VALUES
+  		(0, #{writer}, #{title}, #{content}, #{viewCnt}, 
+  		now(), #{fileName}, #{fileUri})
+  	</insert>
+  	<update id="updateBoard" parameterType="board">
+  		UPDATE board 
+  		SET 
+  		title = #{title},
+  		writer = #{writer},
+  		content = #{content},
+  		
+  		view_cnt = #{viewCnt},
+  		file_name = #{fileName},
+  		file_uri = #{fileUri}
+  		WHERE id = #{id}
+  	</update>
+  	<delete id="deleteBoard" parameterType="int">
+  		DELETE FROM board WHERE id = #{id}
+  	</delete>
+  	
+  	<select id="selectOne" resultMap="boardMap" parameterType="int">
+  		SELECT id, title, writer, content, view_cnt, 
+  		date_format(reg_date, '%Y-%m-%d %H%i%s') as reg_date,
+  		file_name, file_uri
+  		FROM board
+  		WHERE id = #{id}
+  	</select>
+  	
+  	
+  	<select id="selectList" resultMap="boardMap" parameterType="java.util.HashMap">
+  		SELECT id, title, writer, content, view_cnt, 
+  		date_format(reg_date, '%Y-%m-%d %H%i%s') as reg_date,
+  		file_name, file_uri
+  		FROM board
+  		<if test= 'mode==1'>
+  			WHERE title LIKE CONCAT('%', #{key}, '%')
+  		</if>
+  		<if test = 'mode==2'>
+  			WHERE content LIKE '%${key}%'
+  		</if>
+  		<if test = "mode == 3">
+  			WHERE title LIKE CONCAT('%', #{key}, '%')
+  			OR content LIKE '%${key}$%'
+  		</if>
+  	</select>
+  </mapper>

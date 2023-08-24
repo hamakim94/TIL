@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Method</title>
+    <style type="text/css">
+        .completed{
+            text-decoration: line-through;
+            font-style: italic;
+        }
+
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+<body>
+
+    <div id="app">
+        <h3>나의 계획</h3>
+        <ol type="I">
+            <li :class="{completed:t.done}" :style="myStyle" v-for="t in todos">
+                {{t.todo}}
+                <button @click="complete(t)">완료</button>
+            </li>
+        </ul>
+    </div>
+
+    
+    <script>
+       new Vue({
+            el : '#app',
+            data() {
+                return{
+                    todos:[
+                        {
+                            todo: "10분 수업듣고 밥먹기",
+                            done:false
+                        },
+                        {
+                            todo: "쌀씻기",
+                            done:false
+                        },
+                        {
+                            todo: "Vue 복습",
+                            done:false
+                        },
+                        {
+                            todo: "필기",
+                            done:false
+                        },
+                    ],
+                    myStyle : {
+                        fontSize: '25px'
+                    }
+                }
+               
+            },
+            methods:{
+                complete(todo){
+                    todo.done = !todo.done
+                }
+            },
+        })
+    </script>
+
+</body>
+</html>

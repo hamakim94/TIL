@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <title>연습3</title>
+</head>
+
+<head>
+    <!-- 생략 -->
+</head>
+<body>
+    <div id="app">
+        <form>
+            <select v-model="region">
+                <option selected value="서울" selected>서울</option>
+                <option selected value="대전">대전</option>
+                <option selected value="불경">불경</option>
+                <option selected value="광주">광주</option>
+                <option selected value="구미">구미</option>
+            </select>
+        </form> 
+    
+    </div>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data : {
+                region:'대',
+            },
+        }) 
+    </script>
+</body>
+</html>
+</html>

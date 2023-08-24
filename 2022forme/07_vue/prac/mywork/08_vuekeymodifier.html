@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Event</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <input type = "text" v-model="id" placeholder="입력할 아이디 입력">
+        <button @click="sendId">버튼</button>
+        <input type = "text" v-model="id" placeholder="입력할 아이디 입력" @keyup.space="sendId">
+    </div>
+    <script>
+        new Vue({
+            el : '#app',
+            data(){
+                return{
+                    id : ""
+                }
+            },
+            methods:{
+                sendId(){
+                    alert(`${this.id}`)
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

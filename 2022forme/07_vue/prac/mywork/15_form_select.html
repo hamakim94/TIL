@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<!-- 체크박스는 배열로 받을 수 있다는 사실! -->
+<body>
+    <div id="app">
+        <div>
+            끽
+        </div>
+        <select v-model ="selectedArea">
+            <option disabled value="">선택</option>
+            <option  value="광주">광주</option>
+            <option  value="푸산">푸산</option>
+            <option  value="대전">대전</option>
+            <option  value="서울">서울</option>
+        </select>    
+        <span> {{ selectedArea }} </span>
+    </div>
+    
+    <script>
+        new Vue({
+            el : '#app',
+            data :{
+                selectedArea : ''
+            }   
+        })
+    </script>
+</body>
+</html>

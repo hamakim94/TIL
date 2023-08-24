@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+	<context:component-scan base-package="com.hamakim94.board.model.service"></context:component-scan>
+
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	<bean
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+		id="dataSource">
+		<property name="driverClassName"
+			value="com.mysql.cj.jdbc.Driver"></property>
+		<property name="url"
+			value="jdbc:mysql://localhost:3306/hamakim94_board?serverTimezone=UTC"></property>
+		<property name="username" value=""></property>
+		<property name="password" value=""></property>
+	</bean>
+
+	<!-- SqlSessionFactory를 빈으로 등록하기 => 1번 방법 -->
+	<bean class="org.mybatis.spring.SqlSessionFactoryBean"
+		id="sqlSessionFactory">
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="typeAliasesPackage"
+			value="com.hamakim94.board.model.dto"></property>
+		<property name="mapperLocations"
+			value="classpath:/mapper/*Mapper.xml"></property>
+	</bean>
+
+
+	<!-- 해보니까, try-catch 다 사라져. 뭐야. 너무 편한데? 그럼 그냥 매퍼 자체를 빈으로 등록하면? -->
+	<bean class="org.mybatis.spring.mapper.MapperFactoryBean" id = "userDao">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+		<property name="mapperInterface"
+			value="com.hamakim94.board.model.dao.UserDao"></property>
+	</bean>
+
+	<bean class="org.mybatis.spring.mapper.MapperFactoryBean" id = "boardDao">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+		<property name="mapperInterface"
+			value="com.hamakim94.board.model.dao.BoardDao"></property>
+	</bean>
+
+	<bean
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
+		id="transactionManager">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+
+	<tx:annotation-driven transaction-manager="transactionManager" />
+</beans>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <title>연습2</title>
+</head>
+
+<body>
+   <div id="app2">
+   <p> Using Mustaches : {{ rawHtml }} </p>
+   <p> Using v-html directive : <span v-html="rawHtml"></span></p>
+</div>
+</body>
+
+
+
+<script>
+
+  let obj = {
+      rawHtml : '<span style = "color:red">This should be red</span>'
+  }
+
+  new Vue({
+      el: '#app2',
+      data : obj
+  })
+</script>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>서버에서 받은 메시지</h1>
+    <div id="msg-view"></div>
+    <button>요청</button>
+
+
+    <script>
+        let xhr; // 껍데기 준비
+        //1. 클라이언트에서 요청이 발생해야함
+        
+        document.querySelector("button").addEventListener("click", () => {
+            //AJAX 요청과 응답 처리를 진행할 XML HttpRequest 객체를 생선한다
+            xhr = new XMLHttpRequest();
+
+            // xhr의 상태가 바뀔 때 마다 호출할 콜백함수를 등록하겠다.
+            xhr.onreadystatechange = responseMsg;
+
+            //서버에 요청을 보낼거에요
+            //open("요청 방식", "URL(어디다 어떤 요청을?)" [, "비동기 방식의 여부"] )
+            xhr.open("GET", "./data/hello.txt", true);
+            // 요청 보내기
+            xhr.send(null);
+
+        });
+
+        //AJAX 요청에 대한 응답이 왔을때 싸용할 콜백함수
+        function responseMsg(){
+            //서버에 응답이 완벽하게 끝났을 때 
+            if(xhr.readyState == 4){
+                // 서버에서 오류가 없이 정상적으로 처리가 됐을 때
+                console.log(xhr);
+
+            }
+        }
+
+    </script>
+</body>
+
+</html>

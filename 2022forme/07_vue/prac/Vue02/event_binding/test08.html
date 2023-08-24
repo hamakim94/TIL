@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <title>Vue Method</title>
+</head>
+<body>
+    <div id="app">
+        <div>
+            <button @click="greet('hi')"> 인사하기 </button>
+            <!-- <button @click="greet($event, 'hi')"> 인사하기 </button> -->
+        </div>
+        
+    
+    </div>
+
+    
+    <script>
+       new Vue({
+            el : '#app',
+            data () {
+                return {
+                    name: 'vue js'
+                }
+            },
+            methods:{
+                greet(msg){
+                    alert(`Hello ${msg}`)
+                    console.log(event)
+                }
+                // greet(e, msg){
+                //     alert(`Hello ${msg}`)
+                //     console.log(e)
+                // }
+            }
+           
+            // 지역변수
+                
+        })
+    </script>
+
+</body>
+</html>

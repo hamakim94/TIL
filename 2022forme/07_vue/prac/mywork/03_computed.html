@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    
+</head>
+<body>
+
+    <div id="app">
+        <!-- 역순으로 거꾸로 찍는거 해보기 -->
+        <input type="text" v-model="message"> <br>
+        {{ reversedMsg }} <br>
+        {{ reversedMsg }} <br>
+        {{ reversedMsg }} <br>
+        
+    </div>
+    
+    <script>
+        new Vue({
+            el : "#app",
+            data (){
+                return{
+                    message : '입 력 하 시 던 가'
+                }
+            },
+            computed : {
+                reversedMsg : function(){
+                return this.message.split('').reverse().join('');
+                }
+            }
+        })
+    </script>
+</body>
+</html>

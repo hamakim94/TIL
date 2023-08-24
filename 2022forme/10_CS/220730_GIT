@@ -1,0 +1,13 @@
+# 220729 git
+
+git log --oneline --graph
+
+- 현재 보여줌
+
+git stash : 현재 커밋하지 않은 저장 사항들을 임시 보관해줌
+
+git checkout 7자리 : 그 커밋 한 상태로 되돌아감
+
+git switch -   : 현재 상태로 돌아옴 ( 부정확)
+
+git stash pop : 내가 작업하던거 뽑아옴

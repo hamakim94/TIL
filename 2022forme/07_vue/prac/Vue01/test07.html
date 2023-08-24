@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <title>Hello Vue</title>
+</head>
+<body>
+    <div id="app">
+        <div>{{num }}</div>
+        <div>{{msg}}</div>
+        <div>{{msg.split('').reverse().join('') }}</div>
+        <div v-text="msg + ' Vue'"></div> <!-- {{}}랑 v-text랑 똑같음-->
+        <div> {{ num > 10 ? num : num**2}}</div> <!-- {{}}랑 v-text랑 똑같음-->
+    </div>  
+
+    <script>
+        const app = new Vue({
+            el : "#app",
+            data(){ 
+                return{
+                    num : 5,
+                    msg : "hello"
+                }
+            }
+        })
+    </script>
+</body>
+</html>

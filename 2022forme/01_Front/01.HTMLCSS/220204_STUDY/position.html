@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 기본 마진, 패딩 다 없애기 */
+        *{
+            margin:0;
+            padding:0;
+            /* 이게 사이즈 맞추ㅋ기 */
+            box-sizing: border-box;
+        }
+        div {
+            height: 100px;
+            width: 100px;
+            background-color:  orange;
+            color: black;
+            line-height: 100px;
+            text-align: center;
+        }
+        .relative{
+            /* 이렇게 하게끔 보이게 해 */
+            /* 실제 차지하는 공간은 원래 위치*/
+            /* 그냥 보이는게 우측아래에 보인다*/
+
+            position: relative;
+            top: 50px;
+            left: 50px;
+
+        }
+
+        .parent{
+            position: relative;
+        }
+        .absolute-child{
+            position : absolute;
+            top : 50px;
+            left: 50px;
+        }
+
+        .fixed{
+            position: fixed;
+            bottom: 0;
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- <div class = "relative">static</div> -->
+    <!-- 이렇게 설정하면 바로 밑에 붙음
+        왜냐면 이미 위에 클래스에 공간을 차지하고있으니.. -->
+    <!-- <div style="background-color : green;"></div> -->
+
+    <!-- 부모요소로만쓰겠다 -->
+    <div class = "parent"> 
+        <!-- 공간 차지 안 함 : absoulte -->
+        <div class="absolute-child" style="background-color: yellow;"></div>
+    </div>
+    <!--      -->
+    <div style="background-color: red;"></div>
+    <div class="fixed" style="background-color: aqua;"></div>
+</body>
+</html>

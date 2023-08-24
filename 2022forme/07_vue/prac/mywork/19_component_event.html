@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue event</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    
+</head>
+<body>
+    <h2> 사용자 정의 이벤트</h2>
+
+    <div id="app">
+        <button v-on:click="doAction">메시지전송</button>
+        <h2>{{message}}</h2>
+    </div>
+
+    <script>
+        new Vue({
+            el:'#app',
+            data(){
+                return{
+                    message : '',
+                }
+            },
+            methods : {
+                doAction(){
+                    this.$emit('sendMsg', '안녕하세요 여러분');
+                },
+            },
+            created(){
+                this.$on('sendMsg', (msg) => {
+                    alert(msg);
+                    this.message = msg;
+                })
+            }
+        })
+    </script>
+
+
+
+</body>
+</html>

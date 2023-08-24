@@ -1,0 +1,51 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    width: 1000px;
+    height: 830px;
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+}
+
+header, footer{
+    height: 100px;
+    background-color: orange;
+
+}
+
+section{
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+}
+
+.main{
+    flex-grow: 9;
+    background-color: aqua;
+    display: flex;
+    flex-direction: column;
+}
+.side{
+    flex-grow: 1;
+    background-color: antiquewhite;
+}
+
+.main-area{
+    flex-grow: 1;
+}
+.sub-section{
+    display: flex;
+    flex-direction: row;
+    height: 100px;
+}
+
+.article{
+    flex-grow : 1
+}
+
+

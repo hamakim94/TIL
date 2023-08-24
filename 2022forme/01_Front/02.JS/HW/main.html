@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./main.css">
+
+    <title>Document</title>
+    <style>
+        jjimOuter {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <p>영화관리</p>
+            <form action="" method="get" enctype="multipart/form-data">
+                <input type="text" name="movie" placeholder="제목을 입력하세요">
+                <input type="submit" , name="search" value="검색"> <br>
+            </form>
+            <p> 로그인 로그아웃 회원가입 게시판 마이페이지
+            </p>
+        </nav>
+
+        <!-- 홈으로 갈 수 있는 로고, 검색을 위한 <form>, 메뉴들의 링크? -->
+    </header>
+    <main>
+
+        <section>
+            <!-- 영화 정보-->
+            <h1> 영화 목록</h1> <br>
+            <ul>
+                <li>
+                    <img src="./img/eternals.jpg" alt=""><br>
+                    <div class="seperate">
+                        <div>
+                            이터널스
+                            <hr>
+                            액션 <br>
+                            클로이 자오<br>
+                            155분
+                        </div>
+                        <input type="button" value="찜" name="pick" , size="5">
+                    </div>
+                </li>
+
+                <li>
+                    <img src="./img/venom.jpg" alt=""><br>
+                    <div class="seperate">
+                        <div>
+                            베놈 2: 렛 데어 비 카니지
+                            <hr>
+                            액션 <br>
+                            앤디 서키스<br>
+                            97분
+                        </div>
+                        <input type="button" value="찜" name="pick" , size="5">
+                    </div>
+                </li>
+                <li>
+                    <img src="./img/parasite.jpg" alt=""><br>
+                    <div class="seperate">
+                        <div>
+                            기생충
+                            <hr>
+                            드라마 <br>
+                            봉준호<br>
+                            131분
+                        </div>
+                        <input type="button" value="찜" name="pick" , size="5">
+                    </div>
+                </li>
+                <li>
+                    <img src="./img/harrypoter_stone.jpg" alt=""><br>
+                    <div class="seperate">
+                        <div>
+                            해리포터와 마법사의 돌
+                            <hr>
+                            판타지 <br>
+                            크리스 콜롬버스<br>
+                            152분
+                        </div>
+                        <input type="button" value="찜" name="pick" , size="5">
+                    </div>
+                </li>
+                <li>
+                    <img src="./img/harrypoter_room.jpg" alt=""><br>
+                    <div class="seperate">
+                        <div>
+                            해리포터와 비밀의 방
+                            <hr>
+                            판타지 <br>
+                            크리스 콜롬버스<br>
+                            162분
+                        </div>
+                        <input type="button" value="찜" name="pick" , size="5">
+                    </div>
+                </li>
+                <li>
+                    <img src="./img/load_of_ring.jpg" alt=""><br>
+                    <div class="seperate">
+                        <div>
+                            반지의제왕: 왕의 귀환
+                            <hr>
+                            판타지 <br>
+                            피터 잭슨<br>
+                            263분
+                        </div>
+                        <input type="button" value="찜" name="pick" , size="5">
+                    </div>
+                </li>
+
+                <li>
+                    <img src="./img/dune.jpg" alt=""><br>
+                    <div class="seperate">
+                        <div>
+                            듄
+                            <hr>
+                            모험<br>
+                            드니 뵐뇌브<br>
+                            155분
+                        </div>
+                        <input type="button" value="찜" name="pick" , size="5">
+                    </div>
+                </li>
+                <li>
+                    <img src="./img/tomb_of_the_river.jpg" alt=""><br>
+                    <div class="seperate">
+                        <div>
+                            강릉
+                            <hr>범죄<br>윤영빈<br>119분
+                        </div>
+                        <input type="button" value="찜" name="pick" , size="5">
+                    </div>
+                </li>
+
+
+
+            </ul>
+
+        </section>
+
+        <!-- 영화 찜리스트 -->
+        <aside>
+            <h2>찜리스트</h2> <br>
+            <!-- 삭제 버튼 추가-->
+            <button class="todelete">삭제</button>
+            <hr>
+            <!-- 아직 찜한 영화가 없습니다<br> -->
+
+
+        </aside>
+    </main>
+    <!-- 이용약관, 오시는 길 -->
+    <footer>
+        <ul>
+            <a href="">개인정보처리방침</a><br>
+            <a href="">이용약관</a><br>
+            <a href="">오시는길</a><br>
+            <a href="" style="text-decoration-line: none; color: black;">&#169; SSAFY 자바_8반_김민균</a><br>
+
+        </ul>
+    </footer>
+    <script>
+        //name이 pick인걸 가져와야함, 가져오긴 했습니다.
+        //생각만 한다면, 일단 하나씩 골라서 addeventListner로 click을 지정해야하지 않을까요?- 
+
+        // document.querySelectorAll("[name='pick']").forEach(function(item){
+        //     console.log(item)
+        //     item.addEventListener("click",)
+        // }) 접근하기 어려움.
+
+        // div를 가져와, 있는 자료들을 출력합니다.
+
+        // 전체 movie들을 저장할 수 있는 배열
+        let movies;
+
+        let nodediv = document.querySelectorAll(".seperate");
+        //console.log(nodediv)
+        nodediv.forEach(function (item) {
+            // console.log(item.querySelector("[name = 'pick']"))
+            item.querySelector("[name = 'pick']").addEventListener("click", function () {
+                //console.log(item)W
+                // 정규표현식인 경우는 이상하게 된다
+                if (!movies) {
+                    movies = [];
+                }
+                let splited = item.outerText.split("\n");
+                // console.log(jsonStr, typeof(jsonStr))
+                // console.log(splited)
+                let smallObj = { title: splited[0], genre: splited[1], director: splited[2], runTime: splited[3] }
+                // console.log(smallObj)
+                //localStorage.setItem("movie", jsonStr )
+                // 여기서 localStorage로 저장해야함
+                movies.push(smallObj);
+                let jsonMovie = JSON.stringify(movies);
+                localStorage.setItem("movies", jsonMovie)
+                // -----------저장----------------------------
+
+
+                let jjim = document.querySelector("aside");
+                jjim.innerHTML = "<h2>찜리스트</h2> <br> <button class = 'todelete'>삭제</button><hr>"
+                // jjimOuter라는 새로운 div를 만들어서
+                let jjimOuter = document.createElement("div")
+                // movies 안에 있는걸 접근해 넣어준다
+                for (let i = 0; i < movies.length; i++) {
+                    let jjimDiv = document.createElement("div");
+                    jjimDiv.style.marginBottom = "10px";
+                    jjimDiv.className = "canDelete"
+                    jjimDiv.append(movies[i].title + "|" + movies[i].genre + "|" + movies[i].director + "|" + movies[i].runTime);
+                    jjimOuter.append(jjimDiv)
+
+                } // end for : movies 돌면서 jjimOuter라는 div에 넣어줌
+
+                // 최종 h
+                jjim.append(jjimOuter);
+
+                deleteAll()
+
+               
+            })
+
+        })
+
+        // 이제 페이지가 로드 될 때. 
+        window.addEventListener("load", function () {
+            let jsonData = localStorage.getItem("movies")
+            let jsonObj = JSON.parse(jsonData);
+            movies = jsonObj
+            //console.log(movies)
+            if (movies) {
+                let jjim = document.querySelector("aside");
+                jjim.append()
+                // jjimOuter라는 새로운 div를 만들어서
+                let jjimOuter = document.createElement("div");
+
+                // movies 안에 있는걸 접근해 넣어준다
+                for (let i = 0; i < movies.length; i++) {
+                    let jjimDiv = document.createElement("div");
+                    jjimDiv.className = "canDelete"
+                    jjimDiv.style.marginBottom = "10px";
+                    jjimDiv.append(movies[i].title + "|" + movies[i].genre + "|" + movies[i].director + "|" + movies[i].runTime);
+
+                    jjimOuter.append(jjimDiv);
+
+                } // end for : movies 돌면서 jjimOuter라는 div에 넣어줌
+
+                // 최종 h
+                jjim.append(jjimOuter);
+            } else {
+                let jjim = document.querySelector("aside");
+                jjim.innerHTML = "<h2>찜리스트</h2> <br>  아직 찜한 영화가 없습니다."
+            }
+
+        })
+        deleteAll()
+        // 로컬 저장소 삭제 겸 모든 찜리스트 삭제
+        
+
+        function deleteAll(){
+            let delbtn = document.querySelector(".todelete");
+            delbtn.addEventListener("click", function () {
+            localStorage.clear();
+            let divs = document.querySelectorAll(".canDelete")
+            divs.forEach(function (items) {
+                items.remove();
+            })
+            window.location.reload()
+
+        })
+        }
+    </script>
+</body>
+
+</html>

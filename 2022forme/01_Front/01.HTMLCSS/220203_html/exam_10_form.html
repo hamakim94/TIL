@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- form 태그
+        - 사용자의 입력값을 처리하기 위한 태그
+        - 화면에서 입력한 값을 서버에 전송한다.
+    
+        속성
+        - action : 서버의 입력값을 처리할 페이지 주소,
+                   back연동시 그 url로
+                   자기 자신 페이지를 호출한다
+        - method : GET(입력값이 URL에 붙어서 간다. default)'
+                   POST(입력값들이 body에 붙어서 보내짐, 안 보여)
+        - name : 프로그램에서(외부)  해당 form 태그를 접근하기 위해서 사용한다.
+        - ecnType : 파일 업로드시에 multipart/form-data로 값을 지정해야함.
+                                     (암기)
+                    파일 업로드시에는 POST로만 가능하다.
+        - POST 사용경우 : 사용자의 입력 내용이 많거나, 보안이 중요할 때
+        - -->
+        <form action="" method = "get" enctype="multipart/form-data">
+            <!-- input 태그, mdn 치면 올 수 있는게 많다-->
+            <!-- text type : 한 줄을 입력 받을 때 사용한다.-->
+
+            <!-- name : 서버에서 해당 input값을 접근하기 위해서 사용하는 값
+                        name 안 쓰면 입력값을 받을 수 없어-->
+            <!-- id : 해당 태그를 식별할 수 있는 id-->
+            <!-- placeholder : 사용자 입력창에 기본적으로 표시할 문자-->
+            <!-- size : 입력텍스트 창의 크기 지정-->
+            <!-- disabled : 해당 창을 더이상 쓸 수 없게 
+                            ex) 미혼기혼 -> 배우자 이름 X -->
+            <!-- autufocus : 기본 커서가 거기로 이동-->
+            <!-- readonly : 읽기 전용, 쓸 수 없음, 서버로 전송 가능?
+                            주민번호 입력, 다음페이지 가면 이미 채워짐,
+                            근데 서버로 전송된 상태 -->
+            <!-- value : 최초의 특정 값을 출력(기본값)-->
+            id : <input type="text" name = "id" id = "" placeholder="id 입력하샘" value="해삼"> <br>
+<!-- id pw 문자 : 그냥 페이지에 글쓴거.-->
+
+            <!-- maxlength : 최대길이-->
+            password : <input type="password" name="password" maxlength="7"><br>
+
+            <!-- hidden : 사용자와 관련 없이 특정 데이터를 서버에 보내고 싶을 때 
+                .-->
+            hidden : <input type="hidden" name="MODE" value="BETA"> <br>
+           
+
+            <!-- 체크박스 : 
+                        특 : 중복선택 가능, -->
+            <div>
+                당신이 응원하는 댄스팀를 골라!
+            </div>
+            <!-- 팀이라는 결과값을 반환하기 위해서 name을 동일하게 했다.-->
+            <!-- value 속성의 값을 넣어 놓는다.
+                 label을 붙이면 이름을 클릭해도 선택 가능 -> id와 라벨을 묶어-->
+            <!-- checked : 기본 선택된것만 ㄱㄱ-->
+            <input type="checkbox" name="dance" value="1"> wayb<br>
+            <input type="checkbox" name="dance" value="2" id="holybang"><label for="holybang">홀리벵</label> <br>
+            <input type="checkbox" name="dance" value="3"> YGX<br>
+            <input type="checkbox" name="dance" value="4"> 라치카<br>
+            <input type="checkbox" name="dance" value="5" checked> 프라우드먼<br>
+
+            <hr>
+            <!-- radio 복수 선택 불가, 하나만 가능 -->
+            <div>
+                당신은 어디에 속하시나요?
+            </div>
+            <input type="radio" name="age" id = "1" value="잼민"> <label for="1" ></label> 신기방기 잼민이
+            <input type="radio" name="age" id = "2"> <label for="2"></label> 신기방기 중2병
+            <input type="radio" name="age" id = "3"> <label for="3"></label> 신기방기 학식이 <br>
+
+            <!-- srt 과제에서 함 했어-->
+            <!-- select 태그 자체에 여러개의 데이터 목록을 관리한다.-->
+            <!-- 각각의 데이터는 option 태그를 이용한다.-->
+            <!-- 선택된 option 항목의 value 속성값이 전송됨.-->
+            <select name="area" id="">
+                <option value="0">가자미</option>
+                <option value="1">해삼</option>
+                <option value="2">멍개</option>
+                <option value="3">말미잘</option>
+                <option value="4">인절미</option>
+            </select>
+
+            <!-- textarea : 여러줄의 텍스트 입력 받을 때(자소서 등)-->
+            <!-- name : 서버에 전송할 때 사용하는 이름-->
+            <!-- row : 초기 화면을 몇줄을 입력받는 화면으로 구성할지-->
+            <!-- cols : 초기 화면을 몇자를 입력받는 화면으로 구성할지~~-->
+            <textarea name = "content" rows="10" cols="30"></textarea><br>
+
+            <!-- file type을 사용하기 위해선 form에서 속성을 설정해야함.-->
+            file : <input type="file" multiple>
+
+            
+            <!-- submit 서버로 전송하기 위한 버튼
+                폼 안에 있는 모든 값들을 서버로 보내줌
+                value값 주면 버튼 이름이 바뀜-->
+            <input type="submit" value="등록">
+            <input type="reset" value="다비워">
+        </form>
+</body>
+</html>

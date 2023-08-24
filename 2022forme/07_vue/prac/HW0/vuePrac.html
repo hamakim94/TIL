@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <title>연습</title>
+</head>
+<body>
+    <div id="app-2">
+        <span v-bind:title="message">
+            내 위에 잠시 마우스를 올리면 동적바인딩 title
+        </span>
+    </div>
+
+    <div id="app-3">
+        <p v-if="seen">이제 나를 볼 수 있으요</p>
+    </div>
+
+    <div id="app-4">
+        <ol>
+            <li v-for="todo in todos">
+                {{todo.text}}
+            </li>
+        </ol>
+    </div>
+
+    <div id="app-5">
+        <p>{{message}}</p>
+        <button v-on:click="reverseMessage">메세지 뒤집기</button>
+    </div>
+
+    <div id = 'app-6'>
+        <p>{{message}}</p>
+        <input v-model="message">
+    </div>
+</body>
+<script>
+    var app6 = new Vue({
+        el : '#app-6',
+        data : {
+            message : '나는 바보'
+        }
+    })
+
+    var app2 = new Vue({
+        el:'#app-2',
+        data : {
+            message : '이 페이지는' + new Date() + ' 에 로드'
+        }
+    })
+    var app3 = new Vue({
+        el:'#app-3',
+        data : {
+            seen : false
+        }
+    })
+
+    var app4 = new Vue({
+        el: '#app-4',
+        data : {
+            todos : [
+                {text : 'js'},
+                {text : 'vue'},
+                {text : 'ddd'}
+            ]
+        }
+    })
+    var app5 = new Vue({
+        el : '#app-5',
+        data : {
+            message : '인사박습니다'
+        },
+        methods: {
+            reverseMessage : function(){
+                this.message = this.message.split('').reverse().join('')
+            }
+        }
+    })
+</script>
+</html>

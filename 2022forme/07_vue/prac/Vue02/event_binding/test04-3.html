@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <title>Vue Method</title>
+</head>
+<body>
+    <div id="app">
+    </div>
+
+    
+    <script>
+        var vm = new Vue({
+        data: { a: 1 },
+        computed: {
+            // get만 가능합니다.
+            aDouble: function () {
+            return this.a * 2
+            },
+            // get과 set 입니다.
+            aPlus: {
+            get: function () {
+                console.log('get')
+                return this.a + 1
+            },
+            set: function (v) {
+                console.log('set')
+                this.a = v - 1
+            }
+            }
+        }
+        })
+        console.log(vm.a)
+        console.log(vm.aPlus)// => 2  
+        vm.aPlus = 3
+        console.log(vm.a)       // => 2
+        console.log(vm.aDouble) // => 4
+    </script>
+
+</body>
+</html>
