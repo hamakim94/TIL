@@ -1,0 +1,11 @@
+-- 코드를 입력하세요
+
+SELECT ub.title as TITLE, ub.board_id as BOARD_ID, ur.REPLY_ID, ur.writer_id as WRITER_ID,
+ur.contents as CONTENTS, LEFT(ur.created_date, 10) as CREATED_DATE
+FROM used_goods_reply ur
+LEFT JOIN  used_goods_board ub
+ON ub.board_id = ur.board_id
+WHERE LEFT(ub.created_date, 7) = '2022-10'
+ORDER BY ur.created_date, ub.title
+;
+
