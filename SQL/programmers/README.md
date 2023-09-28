@@ -22,3 +22,14 @@
 
 - GROUP BY 전에 WHERE절 쓰던가
 - HAVING 쓰던가
+
+
+
+## 23.09.29
+
+- date_format( 열, '%Y-%m-%d') 기억하기
+- 특정 유저가 특정 물건을 이전에 구입한 적 있는지 
+  - **GROUP BY 유저, 물건**
+  - **HAVING COUNT(*) >= 2**
+
+**GROUP BY를 로 이으면 그룹화 된다는거 잊지 말기!**
