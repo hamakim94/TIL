@@ -10,3 +10,15 @@
  - options LIKE '..시트' OR options LIKE '..시트'...
 - 순서 기억
  - FROM & JOIN -> WHERE -> GROUP BY -> HAVING -> SELECT - ORDER BY - LIMIT
+
+
+
+## 23.09.28
+
+- 보통 한 쪽에는 정보가 없고, 한 쪽에만 있는 경우는 원하지 않는다
+- 그럴 땐 LEFT JOIN 쓰면 안 된다.
+
+
+
+- GROUP BY 전에 WHERE절 쓰던가
+- HAVING 쓰던가
