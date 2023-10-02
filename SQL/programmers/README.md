@@ -33,3 +33,12 @@
   - **HAVING COUNT(*) >= 2**
 
 **GROUP BY를 로 이으면 그룹화 된다는거 잊지 말기!**
+
+
+
+## 23.10.02
+
+- FROM 에서, JOIN JOIN 가능!
+- 그 다음 WHERE로 1차로 거른 후
+- GROUP BY 하겨
+- 그 중 거를 떄 HAVING 쓰면 OK
