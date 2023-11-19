@@ -804,3 +804,18 @@ PGS_기사단원의무기
   ```
 
 - 반복문을 줄일 수 있다.!
+
+## 23.11.19 문자열 내 마음대로 정리하기
+
+``` java
+Arrays.sort( 원하는 배열, (a,b) -> {
+	if(a.charAt(n) == b.charAt(n)){
+    return a.compareTo(b); // a, b는 모두 String
+  } else{
+    return a.charAt(n) - b.charAt(n); // 문자열 큰게 나오면 뒤로
+  }
+});
+```
+
+- **만약 코드블록 열면, return문 필수**
+- 두 가지 조건을 만족시키는 람다도 작성 가능
